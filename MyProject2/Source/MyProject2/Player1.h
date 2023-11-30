@@ -19,6 +19,17 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	void MoveForward(float AxisValue);
+	void MoveRight(float AxisValue);
+	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
+	UPROPERTY(EditAnywhere)UAnimationAsset* RealJump;
+	UPROPERTY(EditAnywhere)UAnimationAsset* ForwardWalk; 
+	USkeletalMeshComponent* PlayerSMC;
+
+	void CustomKeyPress();
+	void ProperJump(); 
+	
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

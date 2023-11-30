@@ -58,7 +58,12 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayer1)
 
 
-#define MyProject2_Source_MyProject2_Player1_h_12_PRIVATE_PROPERTY_OFFSET
+#define MyProject2_Source_MyProject2_Player1_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__PlayerJump() { return STRUCT_OFFSET(APlayer1, PlayerJump); } \
+	FORCEINLINE static uint32 __PPO__RealJump() { return STRUCT_OFFSET(APlayer1, RealJump); } \
+	FORCEINLINE static uint32 __PPO__ForwardWalk() { return STRUCT_OFFSET(APlayer1, ForwardWalk); }
+
+
 #define MyProject2_Source_MyProject2_Player1_h_9_PROLOG
 #define MyProject2_Source_MyProject2_Player1_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

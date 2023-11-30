@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "MyProject2",
-			"Path": "C:\\Users\\Matth\\Documents\\YEAR 2\\MyProject2\\Source\\MyProject2.Target.cs",
+			"Path": "C:\\Users\\Matth\\Documents\\UNI WORK\\Actual Year 2\\TechDemo4\\MyProject2\\Source\\MyProject2.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "MyProject2Editor",
-			"Path": "C:\\Users\\Matth\\Documents\\YEAR 2\\MyProject2\\Source\\MyProject2Editor.Target.cs",
+			"Path": "C:\\Users\\Matth\\Documents\\UNI WORK\\Actual Year 2\\TechDemo4\\MyProject2\\Source\\MyProject2Editor.Target.cs",
 			"Type": "Editor"
 		}
 	]
