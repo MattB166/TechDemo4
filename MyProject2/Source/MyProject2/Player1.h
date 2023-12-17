@@ -23,7 +23,6 @@ protected:
 	void MoveRight(float AxisValue);
 	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
 	UPROPERTY(EditAnywhere)UAnimationAsset* RealJump;
-	UPROPERTY(EditAnywhere)UAnimationAsset* ForwardWalk; 
 	USkeletalMeshComponent* PlayerSMC;
 
 	void CustomKeyPress();

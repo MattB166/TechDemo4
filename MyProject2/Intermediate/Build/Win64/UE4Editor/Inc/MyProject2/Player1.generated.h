@@ -60,8 +60,7 @@ public: \
 
 #define MyProject2_Source_MyProject2_Player1_h_12_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__PlayerJump() { return STRUCT_OFFSET(APlayer1, PlayerJump); } \
-	FORCEINLINE static uint32 __PPO__RealJump() { return STRUCT_OFFSET(APlayer1, RealJump); } \
-	FORCEINLINE static uint32 __PPO__ForwardWalk() { return STRUCT_OFFSET(APlayer1, ForwardWalk); }
+	FORCEINLINE static uint32 __PPO__RealJump() { return STRUCT_OFFSET(APlayer1, RealJump); }
 
 
 #define MyProject2_Source_MyProject2_Player1_h_9_PROLOG
