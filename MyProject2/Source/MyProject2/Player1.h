@@ -18,15 +18,27 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
+	void LookUp(float inputValue);
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Animation Blend Space");
+	UBlendSpaceBase* PlayerBlend;
 	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
-	UPROPERTY(EditAnywhere)UAnimationAsset* RealJump;
+	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerAim;
+	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot; 
 	USkeletalMeshComponent* PlayerSMC;
+	
+	
 
+	
+	bool bIsAiming;
+	bool bIsShooting; 
 	void CustomKeyPress();
-	void ProperJump(); 
+	void StartAiming();
+	void StopAiming();
+	void Shoot(); 
+	void HandleAim();
+	
 	
 
 public:	
