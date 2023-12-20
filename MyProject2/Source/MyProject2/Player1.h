@@ -27,6 +27,8 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerAim;
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot; 
 	USkeletalMeshComponent* PlayerSMC;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
+	int PlayerHealth; 
 	
 	
 
@@ -38,6 +40,7 @@ protected:
 	void StopAiming();
 	void Shoot(); 
 	void HandleAim();
+	void InitialisePlayer();
 	
 	
 

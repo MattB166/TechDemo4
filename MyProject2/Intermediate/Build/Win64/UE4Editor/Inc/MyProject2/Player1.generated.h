@@ -62,7 +62,8 @@ public: \
 	FORCEINLINE static uint32 __PPO__PlayerBlend() { return STRUCT_OFFSET(APlayer1, PlayerBlend); } \
 	FORCEINLINE static uint32 __PPO__PlayerJump() { return STRUCT_OFFSET(APlayer1, PlayerJump); } \
 	FORCEINLINE static uint32 __PPO__PlayerAim() { return STRUCT_OFFSET(APlayer1, PlayerAim); } \
-	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); }
+	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); } \
+	FORCEINLINE static uint32 __PPO__PlayerHealth() { return STRUCT_OFFSET(APlayer1, PlayerHealth); }
 
 
 #define MyProject2_Source_MyProject2_Player1_h_9_PROLOG

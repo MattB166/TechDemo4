@@ -17,6 +17,7 @@ APlayer1::APlayer1()
 void APlayer1::BeginPlay()
 {
 	Super::BeginPlay();
+	InitialisePlayer(); 
 	
 }
 
@@ -26,6 +27,7 @@ void APlayer1::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	//HandleAim();
+	////if player presses shift or left button in, sprint. GetPlayercontroller->max speed or smth like that 
 }
 
 // Called to bind functionality to input
@@ -45,6 +47,12 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	GetCharacterMovement()->bOrientRotationToMovement = false; 
 
 }
+
+void APlayer1::InitialisePlayer()
+{
+	PlayerHealth = 200; 
+}
+
 
 void APlayer1::MoveForward(float AxisValue)
 {
