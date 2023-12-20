@@ -49,7 +49,7 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void APlayer1::MoveForward(float AxisValue)
 {
 	AddMovementInput(GetActorForwardVector()* AxisValue);
-	
+	 UE_LOG(LogTemp, Warning, TEXT("MoveForward AxisValue: %f"), AxisValue);
 }
 
 void APlayer1::MoveRight(float AxisValue)
