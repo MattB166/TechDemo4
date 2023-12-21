@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject2.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C882001D-E614-4125-A098-DD2C59869732}</UniqueIdentifier>
+      <UniqueIdentifier>{3A9FC096-B93C-41F9-976D-B963566C101B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject2.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{2FFE2442-14D5-4D86-866B-A0FBC1EBE056}</UniqueIdentifier>
+      <UniqueIdentifier>{31181EC8-9C2A-4F4A-BA81-02A33D4962A1}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -23,9 +23,18 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Source\MyProject2">
-      <UniqueIdentifier>{6709DEC9-D0EE-4C12-B6AB-226919C87529}</UniqueIdentifier>
+      <UniqueIdentifier>{F3A79D95-4174-4806-AE64-0C3125C9B416}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MyProject2\MyPlayerHUD.cpp">
+      <Filter>Source\MyProject2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject2\MyPlayerHUD.h">
+      <Filter>Source\MyProject2</Filter>
+    </ClInclude>
     <None Include="..\..\Source\MyProject2\MyProject2.Build.cs">
       <Filter>Source\MyProject2</Filter>
     </None>
@@ -39,6 +48,12 @@
       <Filter>Source\MyProject2</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject2\MyProject2GameModeBase.h">
+      <Filter>Source\MyProject2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject2\MyShooterGameMode.cpp">
+      <Filter>Source\MyProject2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject2\MyShooterGameMode.h">
       <Filter>Source\MyProject2</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MyProject2\Player1.cpp">

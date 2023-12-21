@@ -8,24 +8,15 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UUserWidget;
 #ifdef MYPROJECT2_MyShooterGameMode_generated_h
 #error "MyShooterGameMode.generated.h already included, missing '#pragma once' in MyShooterGameMode.h"
 #endif
 #define MYPROJECT2_MyShooterGameMode_generated_h
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_SPARSE_DATA
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execGetSharedHUDWidget);
-
-
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execGetSharedHUDWidget);
-
-
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_INCLASS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_SPARSE_DATA
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_RPC_WRAPPERS
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyShooterGameMode(); \
 	friend struct Z_Construct_UClass_AMyShooterGameMode_Statics; \
@@ -34,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AMyShooterGameMode)
 
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_INCLASS \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyShooterGameMode(); \
 	friend struct Z_Construct_UClass_AMyShooterGameMode_Statics; \
@@ -43,9 +34,9 @@ public: \
 	DECLARE_SERIALIZER(AMyShooterGameMode)
 
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_STANDARD_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyShooterGameMode(const FObjectInitializer& ObjectInitializer); \
+	NO_API AMyShooterGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyShooterGameMode) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyShooterGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyShooterGameMode); \
@@ -56,7 +47,9 @@ private: \
 public:
 
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_ENHANCED_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API AMyShooterGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyShooterGameMode(AMyShooterGameMode&&); \
@@ -64,34 +57,31 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyShooterGameMode); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyShooterGameMode); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyShooterGameMode)
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyShooterGameMode)
 
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__SharedHUDWidgetClass() { return STRUCT_OFFSET(AMyShooterGameMode, SharedHUDWidgetClass); }
-
-
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_12_PROLOG
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_GENERATED_BODY_LEGACY \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_PRIVATE_PROPERTY_OFFSET
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_10_PROLOG
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_RPC_WRAPPERS \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_INCLASS \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_STANDARD_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_RPC_WRAPPERS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_INCLASS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject2_Source_MyProject2_MyShooterGameMode_h_15_GENERATED_BODY \
+#define MyProject2_Source_MyProject2_MyShooterGameMode_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_INCLASS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyShooterGameMode_h_15_ENHANCED_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_INCLASS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyShooterGameMode_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

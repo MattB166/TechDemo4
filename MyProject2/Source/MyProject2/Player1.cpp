@@ -4,6 +4,9 @@
 #include "Player1.h"
 
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Blueprint/UserWidget.h"
+#include "GameFramework/PlayerController.h"
+#include "GameFramework/PlayerState.h"
 #include "Camera/CameraComponent.h"
 
 // Sets default values
@@ -17,6 +20,10 @@ APlayer1::APlayer1()
 void APlayer1::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	
+	
+	
 	InitialisePlayer(); 
 	
 }
@@ -50,28 +57,35 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void APlayer1::InitialisePlayer()
 {
-	PlayerHealth = 200; 
+	PlayerHealth = 200;
+	
 }
+
 
 
 void APlayer1::MoveForward(float AxisValue)
 {
 	AddMovementInput(GetActorForwardVector()* AxisValue);
 	 UE_LOG(LogTemp, Warning, TEXT("MoveForward AxisValue: %f"), AxisValue);
+	
 }
 
 void APlayer1::MoveRight(float AxisValue)
 {
 	AddMovementInput(GetActorRightVector()* AxisValue);
+	 
 }
-void APlayer1::LookUp(float inputValue)
-{
-	AddControllerPitchInput(inputValue); 
-}
+ void APlayer1::LookUp(float inputValue)
+ {
+ 	
+ 	AddControllerPitchInput(inputValue);
+ 	
+ }
 
 
 void APlayer1::CustomKeyPress()
 {
+   
 	PlayerSMC = FindComponentByClass<USkeletalMeshComponent>();
 
 	if(PlayerSMC)

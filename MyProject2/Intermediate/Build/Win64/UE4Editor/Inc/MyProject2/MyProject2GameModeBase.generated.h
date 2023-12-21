@@ -36,7 +36,7 @@ public: \
 
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyProject2GameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API AMyProject2GameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyProject2GameModeBase) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyProject2GameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProject2GameModeBase); \
@@ -48,8 +48,6 @@ public:
 
 
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AMyProject2GameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyProject2GameModeBase(AMyProject2GameModeBase&&); \
@@ -57,7 +55,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMyProject2GameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMyProject2GameModeBase); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyProject2GameModeBase)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyProject2GameModeBase)
 
 
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET

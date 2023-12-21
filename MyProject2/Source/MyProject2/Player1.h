@@ -28,7 +28,17 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot; 
 	USkeletalMeshComponent* PlayerSMC;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
-	int PlayerHealth; 
+	float PlayerHealth;
+	
+public:
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
+	TSubclassOf<class UUserWidget>HUDOverlayAsset;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
+	UUserWidget* HUDOverlayPlayer1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
+	UUserWidget* HUDOverlayPlayer2;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
+	FString PlayerHealthString; 
 	
 	
 
@@ -41,6 +51,7 @@ protected:
 	void Shoot(); 
 	void HandleAim();
 	void InitialisePlayer();
+	
 	
 	
 
