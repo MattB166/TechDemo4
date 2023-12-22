@@ -29,6 +29,11 @@ protected:
 	USkeletalMeshComponent* PlayerSMC;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
 	float PlayerHealth;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
+	float PlayerAmmo;
+	// UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
+	// float ClipAmount; 
+	
 	
 public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
@@ -38,7 +43,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
 	UUserWidget* HUDOverlayPlayer2;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
-	FString PlayerHealthString; 
+	FString PlayerHealthString;
+	
 	
 	
 

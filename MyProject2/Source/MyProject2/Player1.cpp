@@ -58,6 +58,8 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void APlayer1::InitialisePlayer()
 {
 	PlayerHealth = 200;
+	PlayerAmmo = 30;
+	//ClipAmount = 10; 
 	
 }
 
@@ -85,13 +87,7 @@ void APlayer1::MoveRight(float AxisValue)
 
 void APlayer1::CustomKeyPress()
 {
-   
-	PlayerSMC = FindComponentByClass<USkeletalMeshComponent>();
-
-	if(PlayerSMC)
-	{
-		PlayerSMC->PlayAnimation(PlayerJump,false); 
-	}
+	PlayerHealth-=1; 
 }
 void APlayer1::StartAiming()
 {
@@ -115,6 +111,8 @@ void APlayer1::HandleAim()
 		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Yellow,TEXT("Aiming"));
 		PlayAnimMontage(PlayerAim);
 		
+		
+		
 	}
 	else if(bIsShooting || !bIsAiming)
 	{
@@ -123,7 +121,7 @@ void APlayer1::HandleAim()
 	}
 	else if(bIsShooting)
 	{
-		Shoot(); 
+        	Shoot(); 
 	}
 		
 	
@@ -136,8 +134,18 @@ void APlayer1::Shoot()
 		bIsShooting = true;
 		StopAnimMontage(PlayerAim); 
 		PlayAnimMontage(PlayerShoot);
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
-		bIsShooting = false;
+		if(PlayerAmmo > 0)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
+			PlayerAmmo-=1; 
+			bIsShooting = false;
+		}
+		else if(PlayerAmmo == 0)
+		{
+			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO AMMO REMAINING"));
+			bIsShooting = false;
+		}
+		
 		HandleAim(); 
 	}
 	else
@@ -146,6 +154,8 @@ void APlayer1::Shoot()
 	}
 	
 }
+
+
 
 	
     
