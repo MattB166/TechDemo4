@@ -3,8 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NiagaraSystem.h"
 #include "GameFramework/Character.h"
+#include "NiagaraComponent.h"
 #include "Player1.generated.h"
+
 
 UCLASS()
 class MYPROJECT2_API APlayer1 : public ACharacter
@@ -21,6 +24,7 @@ protected:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
 	void LookUp(float inputValue);
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Animation Blend Space");
 	UBlendSpaceBase* PlayerBlend;
 	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
@@ -34,7 +38,8 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
 	float ClipSize;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Player Stats");
-	int32 AmmoInClip; 
+	int32 AmmoInClip;
+	
 	
 	
 	
@@ -49,6 +54,8 @@ public:
 	FString PlayerHealthString;
 	UFUNCTION(BlueprintCallable,Category = "Player Stats")
 	void Reload();
+	
+	
 	
 	
 	

@@ -8,6 +8,8 @@
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/PlayerState.h"
 #include "Camera/CameraComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 
 // Sets default values
 APlayer1::APlayer1()
@@ -60,7 +62,8 @@ void APlayer1::InitialisePlayer()
 	PlayerHealth = 200;
 	TotalAmmo = 20;
 	ClipSize = 10;
-	AmmoInClip = 10; 
+	AmmoInClip = 10;
+	
 	
 }
 
@@ -107,10 +110,12 @@ void APlayer1::StopAiming()
 
 void APlayer1::HandleAim()
 {
+	
 	if(bIsAiming && !bIsShooting)
 	{
 		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Yellow,TEXT("Aiming"));
 		PlayAnimMontage(PlayerAim);
+		
 		
 		
 		
@@ -174,6 +179,10 @@ void APlayer1::Reload()
 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
 	}
 }
+
+
+
+
 
 
 
