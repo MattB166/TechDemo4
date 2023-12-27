@@ -58,8 +58,9 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void APlayer1::InitialisePlayer()
 {
 	PlayerHealth = 200;
-	PlayerAmmo = 30;
-	//ClipAmount = 10; 
+	TotalAmmo = 20;
+	ClipSize = 10;
+	AmmoInClip = 10; 
 	
 }
 
@@ -134,26 +135,46 @@ void APlayer1::Shoot()
 		bIsShooting = true;
 		StopAnimMontage(PlayerAim); 
 		PlayAnimMontage(PlayerShoot);
-		if(PlayerAmmo > 0)
+		if(AmmoInClip > 0)
 		{
-			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
-			PlayerAmmo-=1; 
+			//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
+			AmmoInClip-=1; 
 			bIsShooting = false;
 		}
-		else if(PlayerAmmo == 0)
+		else if(AmmoInClip == 0 && TotalAmmo >= 10)
+		{
+			Reload();
+			bIsShooting = false; 
+		}
+		else if(AmmoInClip == 0 && TotalAmmo == 0)
 		{
 			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO AMMO REMAINING"));
 			bIsShooting = false;
+			
+			
 		}
 		
 		HandleAim(); 
 	}
 	else
 	{
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("NOT SHOOTING"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("NOT SHOOTING"));
 	}
 	
 }
+void APlayer1::Reload()
+{
+
+	if(TotalAmmo > 0 && AmmoInClip < ClipSize)
+	{
+		int32 AmmoToReload = FMath::Min(ClipSize-AmmoInClip,TotalAmmo);
+
+		TotalAmmo -= AmmoToReload;
+		AmmoInClip +=AmmoToReload;
+		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
+	}
+}
+
 
 
 

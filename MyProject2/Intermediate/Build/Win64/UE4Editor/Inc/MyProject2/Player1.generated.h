@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MYPROJECT2_Player1_generated_h
 
 #define MyProject2_Source_MyProject2_Player1_h_12_SPARSE_DATA
-#define MyProject2_Source_MyProject2_Player1_h_12_RPC_WRAPPERS
-#define MyProject2_Source_MyProject2_Player1_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyProject2_Source_MyProject2_Player1_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execReload);
+
+
+#define MyProject2_Source_MyProject2_Player1_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execReload);
+
+
 #define MyProject2_Source_MyProject2_Player1_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer1(); \
@@ -64,7 +72,9 @@ public: \
 	FORCEINLINE static uint32 __PPO__PlayerAim() { return STRUCT_OFFSET(APlayer1, PlayerAim); } \
 	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); } \
 	FORCEINLINE static uint32 __PPO__PlayerHealth() { return STRUCT_OFFSET(APlayer1, PlayerHealth); } \
-	FORCEINLINE static uint32 __PPO__PlayerAmmo() { return STRUCT_OFFSET(APlayer1, PlayerAmmo); }
+	FORCEINLINE static uint32 __PPO__TotalAmmo() { return STRUCT_OFFSET(APlayer1, TotalAmmo); } \
+	FORCEINLINE static uint32 __PPO__ClipSize() { return STRUCT_OFFSET(APlayer1, ClipSize); } \
+	FORCEINLINE static uint32 __PPO__AmmoInClip() { return STRUCT_OFFSET(APlayer1, AmmoInClip); }
 
 
 #define MyProject2_Source_MyProject2_Player1_h_9_PROLOG

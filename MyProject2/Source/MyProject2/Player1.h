@@ -30,9 +30,12 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
 	float PlayerHealth;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
-	float PlayerAmmo;
-	// UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
-	// float ClipAmount; 
+	float TotalAmmo;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
+	float ClipSize;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Player Stats");
+	int32 AmmoInClip; 
+	
 	
 	
 public:
@@ -44,6 +47,9 @@ public:
 	UUserWidget* HUDOverlayPlayer2;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
 	FString PlayerHealthString;
+	UFUNCTION(BlueprintCallable,Category = "Player Stats")
+	void Reload();
+	
 	
 	
 	
