@@ -17,7 +17,25 @@ class MYPROJECT2_API UMyPlayerHUD : public UUserWidget
 public:
 	UPROPERTY(BlueprintReadOnly,Category = "Player")
 	APlayer1* OwningPlayer;
+
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	void StartTimer();
+
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	void StopTimer();
+
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	FString GetFormattedTime();
 	
-	void SetOwningPlayer(APlayer1* Player); 
+	void SetOwningPlayer(APlayer1* Player);
+private:
+
+
+	FTimerHandle RoundTimerHandle;
+	float RemainingTime;
+	float RoundDuration;
+
+	void OnRoundTimerTick();
+	void OnRoundExpired();
 	
 };

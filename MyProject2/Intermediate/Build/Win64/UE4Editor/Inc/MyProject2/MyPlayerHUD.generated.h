@@ -14,8 +14,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MYPROJECT2_MyPlayerHUD_generated_h
 
 #define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_SPARSE_DATA
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_RPC_WRAPPERS
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetFormattedTime); \
+	DECLARE_FUNCTION(execStopTimer); \
+	DECLARE_FUNCTION(execStartTimer);
+
+
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetFormattedTime); \
+	DECLARE_FUNCTION(execStopTimer); \
+	DECLARE_FUNCTION(execStartTimer);
+
+
 #define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyPlayerHUD(); \
