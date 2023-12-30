@@ -16,6 +16,9 @@ APlayer1::APlayer1()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	GunNiagara = nullptr;
+	MySpringArm = nullptr; 
 }
 
 // Called when the game starts or when spawned
@@ -65,7 +68,18 @@ void APlayer1::InitialisePlayer()
 	ClipSize = 10;
 	AmmoInClip = 10;
 	
-	
+	if(UNiagaraComponent* NiagaraComponent = FindComponentByClass<UNiagaraComponent>())
+	{
+		GunNiagara = NiagaraComponent;
+		GunNiagara->SetVisibility(false); 
+		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found Niagara Component"));
+	}
+
+	if(USpringArmComponent* SpringArmComponent = FindComponentByClass<USpringArmComponent>())
+	{
+		MySpringArm = SpringArmComponent;
+		MySpringArm->TargetArmLength = 100; 
+	}
 	
 }
 
@@ -99,13 +113,17 @@ void APlayer1::StartAiming()
 {
 	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STARTED AIMING"));
 	bIsAiming = true;
-	HandleAim(); 
+	HandleAim();
+	MySpringArm->TargetArmLength = 5;
+	GunNiagara->SetVisibility(true);
 }
 void APlayer1::StopAiming()
 {
 	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STOPPED AIMING"));
-	StopAnimMontage(PlayerAim); 
+	StopAnimMontage(PlayerAim);
+	MySpringArm->TargetArmLength = 100; 
 	bIsAiming = false;
+	GunNiagara->SetVisibility(false);
 	//bIsShooting = false; 
 }
 
@@ -161,7 +179,8 @@ void APlayer1::Shoot()
 			
 		}
 		
-		HandleAim(); 
+		HandleAim();
+		
 	}
 	else
 	{

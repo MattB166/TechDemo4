@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "NiagaraComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "Player1.generated.h"
 class USkeletalMeshComponent;
 
@@ -41,7 +42,11 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Player Stats");
 	int32 AmmoInClip;
 	
-	
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Niagara");
+	UNiagaraComponent* GunNiagara;
+
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Aiming");
+	USpringArmComponent* MySpringArm; 
 	
 	
 public:
