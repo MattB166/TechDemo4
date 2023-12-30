@@ -47,7 +47,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Aiming");
 	USpringArmComponent* MySpringArm; 
-	
+
+	// UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Gun");
+	// USkeletalMeshComponent* GunMesh; 
 	
 public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");

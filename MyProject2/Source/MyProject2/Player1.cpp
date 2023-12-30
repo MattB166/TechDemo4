@@ -18,7 +18,8 @@ APlayer1::APlayer1()
 	PrimaryActorTick.bCanEverTick = true;
 
 	GunNiagara = nullptr;
-	MySpringArm = nullptr; 
+	MySpringArm = nullptr;
+	//GunMesh = nullptr; 
 }
 
 // Called when the game starts or when spawned
@@ -80,6 +81,10 @@ void APlayer1::InitialisePlayer()
 		MySpringArm = SpringArmComponent;
 		MySpringArm->TargetArmLength = 100; 
 	}
+	// if(USkeletalMeshComponent* SkeletalMeshComponent = FindComponentByClass<USkeletalMeshComponent>())
+	// {
+	// 	GunMesh = SkeletalMeshComponent;
+	// }
 	
 }
 
@@ -163,6 +168,7 @@ void APlayer1::Shoot()
 		if(AmmoInClip > 0)
 		{
 			//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
+			
 			AmmoInClip-=1; 
 			bIsShooting = false;
 		}
