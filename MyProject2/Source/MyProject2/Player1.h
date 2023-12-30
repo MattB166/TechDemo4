@@ -6,8 +6,9 @@
 #include "NiagaraSystem.h"
 #include "GameFramework/Character.h"
 #include "NiagaraComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "Player1.generated.h"
-
+class USkeletalMeshComponent;
 
 UCLASS()
 class MYPROJECT2_API APlayer1 : public ACharacter

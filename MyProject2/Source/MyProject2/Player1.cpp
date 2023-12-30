@@ -26,7 +26,8 @@ void APlayer1::BeginPlay()
 	
 	
 	
-	InitialisePlayer(); 
+	InitialisePlayer();
+	
 	
 }
 
@@ -63,6 +64,7 @@ void APlayer1::InitialisePlayer()
 	TotalAmmo = 20;
 	ClipSize = 10;
 	AmmoInClip = 10;
+	
 	
 	
 }
