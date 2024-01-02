@@ -3,6 +3,9 @@
 
 #include "Player1.h"
 
+#include <RenderMeshActor.h>
+
+//#include "DrawDebugHelpers.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
@@ -96,11 +99,7 @@ void APlayer1::InitialisePlayer()
 				{
 					GunMesh = Cast<USkeletalMeshComponent>(ChildComponent);
 					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
-					if(GunMesh)
-							{
-								FVector GunLocation = GunMesh->GetSocketLocation("RightHand");
-								FRotator GunRotation = GunMesh->GetSocketRotation("RightHand");
-							}
+					
 				}
 				else
 				{
@@ -233,8 +232,40 @@ void APlayer1::Shoot()
 		PlayAnimMontage(PlayerShoot);
 		if(AmmoInClip > 0)
 		{
+            bool bHit;
+			FHitResult Hit;
 			//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
-			
+			if(GunMesh)
+			{
+				FVector GunLocation = GunMesh->GetSocketLocation("RightHand");
+				FRotator GunRotation = GunMesh->GetSocketRotation("RightHand");
+
+				
+
+				FVector StartLocation = GunLocation;
+				FVector EndLocation = StartLocation + GunRotation.Vector() * MaxRaycastDistance;
+				FCollisionQueryParams CollisionParams;
+				CollisionParams.AddIgnoredActor(this);
+
+				TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
+				ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_Pawn));
+				bHit = GetWorld()->LineTraceSingleByObjectType(Hit,StartLocation,EndLocation,FCollisionObjectQueryParams(ObjectTypes),CollisionParams);
+
+
+				//DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green,true,-1,0,1.f);
+
+			}
+			if(bHit)
+			{
+				APlayer1* HitPlayer = Cast<APlayer1>(Hit.GetActor());
+				if(HitPlayer && HitPlayer != this)
+				{
+					///do damage
+					///
+					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HIT ENEMY"));
+					HitPlayer->TakeDamage(); 
+				}
+			}
 			AmmoInClip-=1; 
 			bIsShooting = false;
 		}
@@ -272,6 +303,11 @@ void APlayer1::Reload()
 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
 	}
 }
+void APlayer1::TakeDamage()
+{
+	PlayerHealth -=10; 
+}
+
 
 
 
