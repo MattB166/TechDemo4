@@ -71,12 +71,14 @@ public: \
 	FORCEINLINE static uint32 __PPO__PlayerJump() { return STRUCT_OFFSET(APlayer1, PlayerJump); } \
 	FORCEINLINE static uint32 __PPO__PlayerAim() { return STRUCT_OFFSET(APlayer1, PlayerAim); } \
 	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); } \
+	FORCEINLINE static uint32 __PPO__PlayerSMC() { return STRUCT_OFFSET(APlayer1, PlayerSMC); } \
 	FORCEINLINE static uint32 __PPO__PlayerHealth() { return STRUCT_OFFSET(APlayer1, PlayerHealth); } \
 	FORCEINLINE static uint32 __PPO__TotalAmmo() { return STRUCT_OFFSET(APlayer1, TotalAmmo); } \
 	FORCEINLINE static uint32 __PPO__ClipSize() { return STRUCT_OFFSET(APlayer1, ClipSize); } \
 	FORCEINLINE static uint32 __PPO__AmmoInClip() { return STRUCT_OFFSET(APlayer1, AmmoInClip); } \
 	FORCEINLINE static uint32 __PPO__GunNiagara() { return STRUCT_OFFSET(APlayer1, GunNiagara); } \
-	FORCEINLINE static uint32 __PPO__MySpringArm() { return STRUCT_OFFSET(APlayer1, MySpringArm); }
+	FORCEINLINE static uint32 __PPO__MySpringArm() { return STRUCT_OFFSET(APlayer1, MySpringArm); } \
+	FORCEINLINE static uint32 __PPO__GunMesh() { return STRUCT_OFFSET(APlayer1, GunMesh); }
 
 
 #define MyProject2_Source_MyProject2_Player1_h_14_PROLOG

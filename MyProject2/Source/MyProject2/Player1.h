@@ -32,6 +32,7 @@ protected:
 	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerAim;
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot; 
+    UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "MESH");
 	USkeletalMeshComponent* PlayerSMC;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
 	float PlayerHealth;
@@ -48,8 +49,8 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Aiming");
 	USpringArmComponent* MySpringArm; 
 
-	// UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Gun");
-	// USkeletalMeshComponent* GunMesh; 
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Gun");
+	USkeletalMeshComponent* GunMesh; 
 	
 public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");

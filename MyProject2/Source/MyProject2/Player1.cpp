@@ -19,7 +19,8 @@ APlayer1::APlayer1()
 
 	GunNiagara = nullptr;
 	MySpringArm = nullptr;
-	//GunMesh = nullptr; 
+	PlayerSMC = nullptr; 
+	GunMesh = nullptr; 
 }
 
 // Called when the game starts or when spawned
@@ -68,7 +69,7 @@ void APlayer1::InitialisePlayer()
 	TotalAmmo = 20;
 	ClipSize = 10;
 	AmmoInClip = 10;
-	
+	PlayerSMC = GetMesh();
 	if(UNiagaraComponent* NiagaraComponent = FindComponentByClass<UNiagaraComponent>())
 	{
 		GunNiagara = NiagaraComponent;
@@ -81,9 +82,74 @@ void APlayer1::InitialisePlayer()
 		MySpringArm = SpringArmComponent;
 		MySpringArm->TargetArmLength = 100; 
 	}
+
+	if(PlayerSMC)
+	{
+		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Searching through SMC"));
+		FString GunNameString(TEXT("GUN"));
+		for(USceneComponent* ChildComponent : PlayerSMC->GetAttachChildren())
+		{
+           
+			if(ChildComponent && ChildComponent->GetName() == GunNameString)
+			{
+				if(ChildComponent->IsA(USkeletalMeshComponent::StaticClass()))
+				{
+					GunMesh = Cast<USkeletalMeshComponent>(ChildComponent);
+					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
+					if(GunMesh)
+							{
+								FVector GunLocation = GunMesh->GetSocketLocation("RightHand");
+								FRotator GunRotation = GunMesh->GetSocketRotation("RightHand");
+							}
+				}
+				else
+				{
+					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Have Not Found GUN Component"));
+				}
+			}
+		}
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO PLAYER SMC"));
+	}
+	// TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+	// GetComponents<USkeletalMeshComponent>(SkeletalMeshComponents);
+	// for(USkeletalMeshComponent* SkeletalMeshComponent : SkeletalMeshComponents)
+	// {
+	// 	FString MeshName = LexToString(SkeletalMeshComponent->SkeletalMesh->GetName());
+	// 	FName GunName(TEXT("GUN"));
+	// 	if(MeshName.Equals(GunName.ToString()))
+	// 	{
+	// 		GunMesh = SkeletalMeshComponent;
+	// 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
+	// 	}
+	// 	if(GunMesh)
+	// 	{
+	// 		FVector GunLocation = GunMesh->GetSocketLocation("RightHand");
+	// 		FRotator GunRotation = GunMesh->GetSocketRotation("RightHand");
+	// 	}
+	// }
 	// if(USkeletalMeshComponent* SkeletalMeshComponent = FindComponentByClass<USkeletalMeshComponent>())
 	// {
-	// 	GunMesh = SkeletalMeshComponent;
+ //      
+	// 	FString MeshName = LexToString(SkeletalMeshComponent->SkeletalMesh->GetName());
+	//     FName GunName(TEXT("GUN"));
+	// 	if(MeshName.Equals(GunName.ToString()))
+	// 	{
+	// 		GunMesh = SkeletalMeshComponent;
+	// 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
+	// 	}
+	// 	else
+	// 	{
+	// 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Have not found GUN"));
+	// 	}
+	// 	
+	// 	if(GunMesh)
+	// 	{
+	// 		FVector GunLocation = GunMesh->GetSocketLocation("RightHand");
+	// 		FRotator GunRotation = GunMesh->GetSocketRotation("RightHand"); 
+	// 	}
 	// }
 	
 }
