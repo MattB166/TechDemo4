@@ -6,6 +6,7 @@
 #include <RenderMeshActor.h>
 
 //#include "DrawDebugHelpers.h"
+#include "DrawDebugHelpers.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
@@ -249,10 +250,11 @@ void APlayer1::Shoot()
 
 				TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
 				ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_Pawn));
+				ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_Visibility));
 				bHit = GetWorld()->LineTraceSingleByObjectType(Hit,StartLocation,EndLocation,FCollisionObjectQueryParams(ObjectTypes),CollisionParams);
 
 
-				//DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green,true,-1,0,1.f);
+				DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green,true,-1,0,1.f);
 
 			}
 			if(bHit)
@@ -260,10 +262,20 @@ void APlayer1::Shoot()
 				APlayer1* HitPlayer = Cast<APlayer1>(Hit.GetActor());
 				if(HitPlayer && HitPlayer != this)
 				{
-					///do damage
-					///
-					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HIT ENEMY"));
-					HitPlayer->TakeDamage(); 
+                   FName HitBoneName = Hit.BoneName;
+					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Hit Bone: %s"), *HitBoneName.ToString()));
+					if(HitBoneName == FName("Head"))
+					{
+						GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HEADSHOT"));
+						HitPlayer->TakeDamage(50);
+					}
+					else
+					{
+						GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HIT ENEMY On Body"));
+						HitPlayer->TakeDamage(10); 
+					}
+					
+					
 				}
 			}
 			AmmoInClip-=1; 
@@ -303,9 +315,19 @@ void APlayer1::Reload()
 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
 	}
 }
-void APlayer1::TakeDamage()
+void APlayer1::TakeDamage(int damage)
 {
-	PlayerHealth -=10; 
+    if(PlayerHealth > 0)
+    {
+    	PlayerHealth -= damage; 
+    }
+	else if(PlayerHealth <= 0)
+	{
+		PlayerHealth = 0;
+		///player die
+		///next level 
+	}
+	
 }
 
 
