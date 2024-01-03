@@ -84,6 +84,7 @@ public:
 	void TakeDamage(int damage);
 	void InitialisePlayer();
 	void AddAmmo(int amount);
+	void AddHealth(int amount); 
 	// void Pickup();
 	// void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 
 	//

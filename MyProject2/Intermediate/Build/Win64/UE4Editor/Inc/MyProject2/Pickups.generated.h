@@ -8,30 +8,34 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
+class APlayer1;
 #ifdef MYPROJECT2_Pickups_generated_h
 #error "Pickups.generated.h already included, missing '#pragma once' in Pickups.h"
 #endif
 #define MYPROJECT2_Pickups_generated_h
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_SPARSE_DATA
-#define MyProject2_Source_MyProject2_Pickups_h_19_RPC_WRAPPERS \
-	virtual void OnPickupCollected_Implementation(); \
+#define MyProject2_Source_MyProject2_Pickups_h_20_SPARSE_DATA
+#define MyProject2_Source_MyProject2_Pickups_h_20_RPC_WRAPPERS \
+	virtual void OnPickupCollected_Implementation(APlayer1* Player); \
  \
-	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execOnPickupCollected);
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void OnPickupCollected_Implementation(); \
+#define MyProject2_Source_MyProject2_Pickups_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void OnPickupCollected_Implementation(APlayer1* Player); \
  \
-	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execOnPickupCollected);
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_EVENT_PARMS
-#define MyProject2_Source_MyProject2_Pickups_h_19_CALLBACK_WRAPPERS
-#define MyProject2_Source_MyProject2_Pickups_h_19_INCLASS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_Pickups_h_20_EVENT_PARMS \
+	struct Pickups_eventOnPickupCollected_Parms \
+	{ \
+		APlayer1* Player; \
+	};
+
+
+#define MyProject2_Source_MyProject2_Pickups_h_20_CALLBACK_WRAPPERS
+#define MyProject2_Source_MyProject2_Pickups_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPickups(); \
 	friend struct Z_Construct_UClass_APickups_Statics; \
@@ -40,7 +44,7 @@ public: \
 	DECLARE_SERIALIZER(APickups)
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_INCLASS \
+#define MyProject2_Source_MyProject2_Pickups_h_20_INCLASS \
 private: \
 	static void StaticRegisterNativesAPickups(); \
 	friend struct Z_Construct_UClass_APickups_Statics; \
@@ -49,7 +53,7 @@ public: \
 	DECLARE_SERIALIZER(APickups)
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_STANDARD_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_Pickups_h_20_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APickups(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APickups) \
@@ -62,7 +66,7 @@ private: \
 public:
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_ENHANCED_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_Pickups_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APickups(APickups&&); \
@@ -73,33 +77,33 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APickups)
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_PRIVATE_PROPERTY_OFFSET
-#define MyProject2_Source_MyProject2_Pickups_h_16_PROLOG \
-	MyProject2_Source_MyProject2_Pickups_h_19_EVENT_PARMS
+#define MyProject2_Source_MyProject2_Pickups_h_20_PRIVATE_PROPERTY_OFFSET
+#define MyProject2_Source_MyProject2_Pickups_h_17_PROLOG \
+	MyProject2_Source_MyProject2_Pickups_h_20_EVENT_PARMS
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_GENERATED_BODY_LEGACY \
+#define MyProject2_Source_MyProject2_Pickups_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_Pickups_h_19_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_Pickups_h_19_SPARSE_DATA \
-	MyProject2_Source_MyProject2_Pickups_h_19_RPC_WRAPPERS \
-	MyProject2_Source_MyProject2_Pickups_h_19_CALLBACK_WRAPPERS \
-	MyProject2_Source_MyProject2_Pickups_h_19_INCLASS \
-	MyProject2_Source_MyProject2_Pickups_h_19_STANDARD_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_Pickups_h_20_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_Pickups_h_20_SPARSE_DATA \
+	MyProject2_Source_MyProject2_Pickups_h_20_RPC_WRAPPERS \
+	MyProject2_Source_MyProject2_Pickups_h_20_CALLBACK_WRAPPERS \
+	MyProject2_Source_MyProject2_Pickups_h_20_INCLASS \
+	MyProject2_Source_MyProject2_Pickups_h_20_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject2_Source_MyProject2_Pickups_h_19_GENERATED_BODY \
+#define MyProject2_Source_MyProject2_Pickups_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_Pickups_h_19_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_Pickups_h_19_SPARSE_DATA \
-	MyProject2_Source_MyProject2_Pickups_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_Pickups_h_19_CALLBACK_WRAPPERS \
-	MyProject2_Source_MyProject2_Pickups_h_19_INCLASS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_Pickups_h_19_ENHANCED_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_Pickups_h_20_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_Pickups_h_20_SPARSE_DATA \
+	MyProject2_Source_MyProject2_Pickups_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_Pickups_h_20_CALLBACK_WRAPPERS \
+	MyProject2_Source_MyProject2_Pickups_h_20_INCLASS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_Pickups_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

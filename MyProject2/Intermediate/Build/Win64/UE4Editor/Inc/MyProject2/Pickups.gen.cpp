@@ -18,7 +18,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 	MYPROJECT2_API UClass* Z_Construct_UClass_APickups_NoRegister();
 	MYPROJECT2_API UClass* Z_Construct_UClass_APickups();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	MYPROJECT2_API UClass* Z_Construct_UClass_APlayer1_NoRegister();
 // End Cross Module References
 	static UEnum* EPickUpType_StaticEnum()
 	{
@@ -76,78 +76,41 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		}
 		return ReturnEnum;
 	}
-	DEFINE_FUNCTION(APickups::execOnActorOverlap)
-	{
-		P_GET_OBJECT(AActor,Z_Param_OverlappedActor);
-		P_GET_OBJECT(AActor,Z_Param_OtherActor);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->OnActorOverlap(Z_Param_OverlappedActor,Z_Param_OtherActor);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(APickups::execOnPickupCollected)
 	{
+		P_GET_OBJECT(APlayer1,Z_Param_Player);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnPickupCollected_Implementation();
+		P_THIS->OnPickupCollected_Implementation(Z_Param_Player);
 		P_NATIVE_END;
 	}
 	static FName NAME_APickups_OnPickupCollected = FName(TEXT("OnPickupCollected"));
-	void APickups::OnPickupCollected()
+	void APickups::OnPickupCollected(APlayer1* Player)
 	{
-		ProcessEvent(FindFunctionChecked(NAME_APickups_OnPickupCollected),NULL);
+		Pickups_eventOnPickupCollected_Parms Parms;
+		Parms.Player=Player;
+		ProcessEvent(FindFunctionChecked(NAME_APickups_OnPickupCollected),&Parms);
 	}
 	void APickups::StaticRegisterNativesAPickups()
 	{
 		UClass* Class = APickups::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "OnActorOverlap", &APickups::execOnActorOverlap },
 			{ "OnPickupCollected", &APickups::execOnPickupCollected },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_APickups_OnActorOverlap_Statics
+	struct Z_Construct_UFunction_APickups_OnPickupCollected_Statics
 	{
-		struct Pickups_eventOnActorOverlap_Parms
-		{
-			AActor* OverlappedActor;
-			AActor* OtherActor;
-		};
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverlappedActor;
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OtherActor;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Player;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APickups_OnActorOverlap_Statics::NewProp_OverlappedActor = { "OverlappedActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Pickups_eventOnActorOverlap_Parms, OverlappedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APickups_OnActorOverlap_Statics::NewProp_OtherActor = { "OtherActor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Pickups_eventOnActorOverlap_Parms, OtherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APickups_OnActorOverlap_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APickups_OnActorOverlap_Statics::NewProp_OverlappedActor,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APickups_OnActorOverlap_Statics::NewProp_OtherActor,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APickups_OnActorOverlap_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Pickups.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APickups_OnActorOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APickups, nullptr, "OnActorOverlap", nullptr, nullptr, sizeof(Pickups_eventOnActorOverlap_Parms), Z_Construct_UFunction_APickups_OnActorOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APickups_OnActorOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APickups_OnActorOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APickups_OnActorOverlap_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_APickups_OnActorOverlap()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APickups_OnActorOverlap_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_APickups_OnPickupCollected_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APickups_OnPickupCollected_Statics::NewProp_Player = { "Player", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Pickups_eventOnPickupCollected_Parms, Player), Z_Construct_UClass_APlayer1_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APickups_OnPickupCollected_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APickups_OnPickupCollected_Statics::NewProp_Player,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APickups_OnPickupCollected_Statics::Function_MetaDataParams[] = {
@@ -155,7 +118,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		{ "ModuleRelativePath", "Pickups.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APickups_OnPickupCollected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APickups, nullptr, "OnPickupCollected", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APickups_OnPickupCollected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APickups_OnPickupCollected_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APickups_OnPickupCollected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APickups, nullptr, "OnPickupCollected", nullptr, nullptr, sizeof(Pickups_eventOnPickupCollected_Parms), Z_Construct_UFunction_APickups_OnPickupCollected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APickups_OnPickupCollected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APickups_OnPickupCollected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APickups_OnPickupCollected_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_APickups_OnPickupCollected()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -194,8 +157,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject2,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APickups_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_APickups_OnActorOverlap, "OnActorOverlap" }, // 4254320285
-		{ &Z_Construct_UFunction_APickups_OnPickupCollected, "OnPickupCollected" }, // 3178675438
+		{ &Z_Construct_UFunction_APickups_OnPickupCollected, "OnPickupCollected" }, // 2511694923
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APickups_Statics::Class_MetaDataParams[] = {
@@ -207,7 +169,9 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APickups_Statics::NewProp_PickUp_MetaData[] = {
 		{ "Category", "Pickups" },
+		{ "Comment", "// UFUNCTION()\n// void OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);\n" },
 		{ "ModuleRelativePath", "Pickups.h" },
+		{ "ToolTip", "UFUNCTION()\nvoid OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);" },
 	};
 #endif
 	const UE4CodeGen_Private::FEnumPropertyParams Z_Construct_UClass_APickups_Statics::NewProp_PickUp = { "PickUp", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APickups, PickUp), Z_Construct_UEnum_MyProject2_EPickUpType, METADATA_PARAMS(Z_Construct_UClass_APickups_Statics::NewProp_PickUp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APickups_Statics::NewProp_PickUp_MetaData)) };
@@ -250,7 +214,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APickups, 3767265117);
+	IMPLEMENT_CLASS(APickups, 3085137210);
 	template<> MYPROJECT2_API UClass* StaticClass<APickups>()
 	{
 		return APickups::StaticClass();

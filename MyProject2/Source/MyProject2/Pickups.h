@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Player1.h"
 #include "GameFramework/Actor.h"
 #include "Pickups.generated.h"
 UENUM(BlueprintType)
@@ -31,10 +32,10 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintNativeEvent,Category = "Pickup")
-	void OnPickupCollected();
+	void OnPickupCollected(APlayer1* Player);
 	virtual void OnPickUpCollected_Implementation();
-	UFUNCTION()
-	void OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);
+	// UFUNCTION()
+	// void OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickups")
 	EPickUpType PickUp;

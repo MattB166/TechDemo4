@@ -340,7 +340,9 @@ void APlayer1::OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)
 		CurrentPickup = Cast<APickups>(OtherActor);
 		if(CurrentPickup)
 		{
-			CurrentPickup->OnPickupCollected(); 
+			
+			CurrentPickup->OnPickupCollected(this);
+			
 		}
 	}
 }
@@ -349,6 +351,14 @@ void APlayer1::AddAmmo(int amount)
 	TotalAmmo+= amount;
 	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Green,TEXT("AMMO INCREASED"));
 }
+void APlayer1::AddHealth(int amount)
+{
+	if(PlayerHealth < 200 && (PlayerHealth + amount <= 200))
+	{
+		PlayerHealth += amount; 
+	}
+}
+
 
 
 // void APlayer1::Pickup()

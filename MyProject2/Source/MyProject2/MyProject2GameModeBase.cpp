@@ -56,11 +56,12 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
 }
 void AMyProject2GameModeBase::BeginPlay()
 {
-   SpawnPickup(); 
+   SpawnPickup();
+   GetWorldTimerManager().SetTimer(PickupSpawnTimerHandle,this,&AMyProject2GameModeBase::SpawnPickup,PickUpSpawnInterval,true); 
 }
 void AMyProject2GameModeBase::SpawnPickup()
 {
-   if(PickupLocations.Num() > 0 && PickupClasses.Num() > 0)
+   if(NumSpawnedPickups < 4 && PickupLocations.Num() > 0 && PickupClasses.Num() > 0)
    {
       int32 RandomClassIndex = FMath::RandRange(0,PickupClasses.Num()-1);
       TSubclassOf<AActor> ChosenPickupClass = PickupClasses[RandomClassIndex];
@@ -68,9 +69,23 @@ void AMyProject2GameModeBase::SpawnPickup()
       int32 RandomLocationIndex = FMath::RandRange(0,PickupLocations.Num() - 1);
       FVector SpawnLocation = PickupLocations[RandomLocationIndex];
 
-      AActor* NewPickup = GetWorld()->SpawnActor<AActor>(ChosenPickupClass,SpawnLocation,FRotator::ZeroRotator); 
+      AActor* NewPickup = GetWorld()->SpawnActor<AActor>(ChosenPickupClass,SpawnLocation,FRotator::ZeroRotator);
+
+      FString SpawnLoc = FString::Printf(TEXT("PICKUP SPAWNED AT: %S"),*SpawnLocation.ToString());
+      GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, SpawnLoc);
+
+      ++NumSpawnedPickups; 
    }
 }
+void AMyProject2GameModeBase::DecrementPickUpCount()
+{
+   --NumSpawnedPickups;
+   if(NumSpawnedPickups < 0)
+   {
+      NumSpawnedPickups = 0; 
+   }
+}
+
 
 
 
