@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\MyProject2.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{169E61BD-2125-4741-93E1-29F55531E9A0}</UniqueIdentifier>
+      <UniqueIdentifier>{3675EE0F-B1E2-42C2-9582-1EE3786FCF60}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\MyProject2.Target.cs">
       <Filter>Source</Filter>
@@ -13,7 +13,7 @@
     </None>
     <None Include="..\..\MyProject2.sln.DotSettings.user" />
     <Filter Include="Config">
-      <UniqueIdentifier>{9384469A-2C6D-4761-AA36-8AB213C37DB3}</UniqueIdentifier>
+      <UniqueIdentifier>{AF8236A7-AEB0-43E6-AFA4-15DEB797BE88}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -28,8 +28,14 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\MyProject2">
-      <UniqueIdentifier>{932F438D-F54D-4359-8652-F5F13B9028EC}</UniqueIdentifier>
+      <UniqueIdentifier>{6B851C2F-5DD6-4712-9FC8-90D4E0A25D2A}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MyProject2\MainMenuGameMode.cpp">
+      <Filter>Source\MyProject2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject2\MainMenuGameMode.h">
+      <Filter>Source\MyProject2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MyProject2\MyPlayerHUD.cpp">
       <Filter>Source\MyProject2</Filter>
     </ClCompile>
@@ -57,6 +63,12 @@
     <ClInclude Include="..\..\Source\MyProject2\MyShooterGameMode.h">
       <Filter>Source\MyProject2</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject2\MyUserWidget.cpp">
+      <Filter>Source\MyProject2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject2\MyUserWidget.h">
+      <Filter>Source\MyProject2</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MyProject2\Pickups.cpp">
       <Filter>Source\MyProject2</Filter>
     </ClCompile>
@@ -67,6 +79,12 @@
       <Filter>Source\MyProject2</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MyProject2\Player1.h">
+      <Filter>Source\MyProject2</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject2\TestPlayerController.cpp">
+      <Filter>Source\MyProject2</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject2\TestPlayerController.h">
       <Filter>Source\MyProject2</Filter>
     </ClInclude>
   </ItemGroup>

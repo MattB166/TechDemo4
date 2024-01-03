@@ -26,7 +26,7 @@ protected:
 	void MoveForward(float AxisValue);
 	void MoveRight(float AxisValue);
 	void LookUp(float inputValue);
-	int MaxRaycastDistance = 1500; 
+	int MaxRaycastDistance = 2500; 
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Animation Blend Space");
 	UBlendSpaceBase* PlayerBlend;
