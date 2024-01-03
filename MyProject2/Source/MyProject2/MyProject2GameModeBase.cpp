@@ -92,6 +92,11 @@ void AMyProject2GameModeBase::DecrementPickUpCount()
       NumSpawnedPickups = 0; 
    }
 }
+void AMyProject2GameModeBase::RemoveSpawnedLocation(const FVector& Location)
+{
+   SpawnedLocations.Remove(Location); 
+}
+
 
 
 

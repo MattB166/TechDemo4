@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 #ifdef MYPROJECT2_MyProject2GameModeBase_generated_h
 #error "MyProject2GameModeBase.generated.h already included, missing '#pragma once' in MyProject2GameModeBase.h"
 #endif
 #define MYPROJECT2_MyProject2GameModeBase_generated_h
 
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_SPARSE_DATA
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execRemoveSpawnedLocation);
+
+
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execRemoveSpawnedLocation);
+
+
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyProject2GameModeBase(); \

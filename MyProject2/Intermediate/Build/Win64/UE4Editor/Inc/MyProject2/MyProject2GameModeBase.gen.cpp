@@ -21,8 +21,61 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AMyProject2GameModeBase::execRemoveSpawnedLocation)
+	{
+		P_GET_STRUCT_REF(FVector,Z_Param_Out_Location);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RemoveSpawnedLocation(Z_Param_Out_Location);
+		P_NATIVE_END;
+	}
 	void AMyProject2GameModeBase::StaticRegisterNativesAMyProject2GameModeBase()
 	{
+		UClass* Class = AMyProject2GameModeBase::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "RemoveSpawnedLocation", &AMyProject2GameModeBase::execRemoveSpawnedLocation },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics
+	{
+		struct MyProject2GameModeBase_eventRemoveSpawnedLocation_Parms
+		{
+			FVector Location;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Location_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Location;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::NewProp_Location_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::NewProp_Location = { "Location", nullptr, (EPropertyFlags)0x0010000008000182, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyProject2GameModeBase_eventRemoveSpawnedLocation_Parms, Location), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::NewProp_Location_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::NewProp_Location_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::NewProp_Location,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyProject2GameModeBase, nullptr, "RemoveSpawnedLocation", nullptr, nullptr, sizeof(MyProject2GameModeBase_eventRemoveSpawnedLocation_Parms), Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04C20401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AMyProject2GameModeBase_NoRegister()
 	{
@@ -31,6 +84,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	struct Z_Construct_UClass_AMyProject2GameModeBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -55,6 +109,9 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	UObject* (*const Z_Construct_UClass_AMyProject2GameModeBase_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AGameModeBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject2,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMyProject2GameModeBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyProject2GameModeBase_RemoveSpawnedLocation, "RemoveSpawnedLocation" }, // 3521907264
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::Class_MetaDataParams[] = {
@@ -103,11 +160,11 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers),
 		0,
 		0x009002ACu,
@@ -122,7 +179,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProject2GameModeBase, 2259365419);
+	IMPLEMENT_CLASS(AMyProject2GameModeBase, 3174428460);
 	template<> MYPROJECT2_API UClass* StaticClass<AMyProject2GameModeBase>()
 	{
 		return AMyProject2GameModeBase::StaticClass();

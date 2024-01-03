@@ -18,7 +18,10 @@ public:
 	void DecrementPickUpCount(); 
 
 	virtual void PostLogin(APlayerController* NewPlayer) override;
-	int32 NumSpawnedPickups = 0;  
+	int32 NumSpawnedPickups = 0;
+
+	UFUNCTION(BlueprintCallable)
+	void RemoveSpawnedLocation(const FVector& Location); 
 protected:
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Pickup")
 	TArray<FVector> PickupLocations;

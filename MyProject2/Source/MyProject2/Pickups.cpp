@@ -49,6 +49,14 @@ void APickups::OnPickupCollected_Implementation(APlayer1* Player)
 		default:
 			break; 
 	}
+	if(GetWorld())
+	{
+		AMyProject2GameModeBase* GameModeBase = Cast<AMyProject2GameModeBase>(GetWorld()->GetAuthGameMode());
+		if(GameModeBase)
+		{
+			GameModeBase->RemoveSpawnedLocation(GetActorLocation()); 
+		}
+	}
 	AMyProject2GameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyProject2GameModeBase>();
 	if(GameMode)
 	{
