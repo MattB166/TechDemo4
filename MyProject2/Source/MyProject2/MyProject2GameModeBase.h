@@ -24,6 +24,8 @@ protected:
 	TArray<FVector> PickupLocations;
 
 	FTimerHandle PickupSpawnTimerHandle;
+
+	TArray<FVector> SpawnedLocations; 
 	
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickup")

@@ -66,8 +66,15 @@ void AMyProject2GameModeBase::SpawnPickup()
       int32 RandomClassIndex = FMath::RandRange(0,PickupClasses.Num()-1);
       TSubclassOf<AActor> ChosenPickupClass = PickupClasses[RandomClassIndex];
 
-      int32 RandomLocationIndex = FMath::RandRange(0,PickupLocations.Num() - 1);
-      FVector SpawnLocation = PickupLocations[RandomLocationIndex];
+      FVector SpawnLocation;
+      do
+      {
+         int32 RandomLocationIndex = FMath::RandRange(0,PickupLocations.Num() - 1);
+         SpawnLocation = PickupLocations[RandomLocationIndex];
+      }
+      while (SpawnedLocations.Contains(SpawnLocation));
+
+      SpawnedLocations.Add(SpawnLocation); 
 
       AActor* NewPickup = GetWorld()->SpawnActor<AActor>(ChosenPickupClass,SpawnLocation,FRotator::ZeroRotator);
 
