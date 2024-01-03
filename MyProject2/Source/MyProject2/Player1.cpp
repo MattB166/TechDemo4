@@ -7,6 +7,7 @@
 
 //#include "DrawDebugHelpers.h"
 #include "DrawDebugHelpers.h"
+#include "MyProject2.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
 #include "GameFramework/PlayerController.h"
@@ -62,6 +63,7 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAction("PlayerAim",IE_Pressed,this,&APlayer1::StartAiming);
 	PlayerInputComponent->BindAction("PlayerAim", IE_Released,this,&APlayer1::StopAiming);
 	PlayerInputComponent->BindAction("PlayerShoot",IE_Pressed,this, &APlayer1::Shoot);
+	PlayerInputComponent->BindAction("Pickup",IE_Pressed,this,&APlayer1::Pickup); 
 
 	GetCharacterMovement()->bOrientRotationToMovement = false; 
 
@@ -329,6 +331,46 @@ void APlayer1::TakeDamage(int damage)
 	}
 	
 }
+void APlayer1::Pickup()
+{
+	if(MySpringArm && MySpringArm->GetChildComponent(0))
+	{
+		USceneComponent* CameraComp = MySpringArm->GetChildComponent(0);
+		FVector CameraLocation = CameraComp->GetComponentLocation();
+		FVector CameraForwardVector = CameraComp->GetForwardVector();
+
+		FVector EndLocation = CameraLocation + CameraForwardVector * 600;
+		PerformPickupRaycast(CameraLocation,EndLocation);
+		
+	}
+}
+void APlayer1::PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation)
+{
+	FHitResult PickupHitResult;
+	FCollisionQueryParams CollisionQueryParams;
+	CollisionQueryParams.AddIgnoredActor(this);
+   bool bHit = GetWorld()->LineTraceSingleByChannel(PickupHitResult,StartLocation,EndLocation,ECC_GameTraceChannel1,CollisionQueryParams);
+	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Blue,true,-1,0,1.f);
+	if(bHit)
+	{
+		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("HIT A PICKUP"));
+		AActor* HitActor = PickupHitResult.GetActor();
+		if(HitActor)
+		{
+			FString ActorName = HitActor->GetName();
+			if(ActorName.Equals(TEXT("AmmoPickup")))
+			{
+				GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("Picking Up Ammo"));
+			}
+		}
+		
+	}
+	
+	
+	
+}
+
+
 
 
 

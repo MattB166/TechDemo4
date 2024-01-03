@@ -19,5 +19,19 @@ public:
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 
 protected:
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Pickup")
+	TArray<FVector> PickupLocations;
+
+	FTimerHandle PickupSpawnTimerHandle;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickup")
+	TArray<TSubclassOf<class AActor>> PickupClasses; 
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,category = "Pickup")
+	float PickUpSpawnInterval;
+
+	virtual void BeginPlay() override;
+
+	void SpawnPickup(); 
 	
 };

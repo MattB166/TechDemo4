@@ -17,6 +17,9 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	MYPROJECT2_API UClass* Z_Construct_UClass_AMyProject2GameModeBase();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_MyProject2();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
 	void AMyProject2GameModeBase::StaticRegisterNativesAMyProject2GameModeBase()
 	{
@@ -31,6 +34,21 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_PickupLocations_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickupLocations_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_PickupLocations;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_PickupClasses_Inner;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickupClasses_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_PickupClasses;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickUpSpawnInterval_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PickUpSpawnInterval;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -47,6 +65,36 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_Inner = { "PickupLocations", nullptr, (EPropertyFlags)0x0000000000000000, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_MetaData[] = {
+		{ "Category", "Pickup" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations = { "PickupLocations", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, PickupLocations), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_Inner = { "PickupClasses", nullptr, (EPropertyFlags)0x0004000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_MetaData[] = {
+		{ "Category", "Pickup" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses = { "PickupClasses", nullptr, (EPropertyFlags)0x0024080000000015, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, PickupClasses), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval_MetaData[] = {
+		{ "Category", "Pickup" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval = { "PickUpSpawnInterval", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, PickUpSpawnInterval), METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyProject2GameModeBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyProject2GameModeBase>::IsAbstract,
 	};
@@ -56,11 +104,11 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers),
 		0,
 		0x009002ACu,
 		METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::Class_MetaDataParams))
@@ -74,7 +122,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProject2GameModeBase, 3868602600);
+	IMPLEMENT_CLASS(AMyProject2GameModeBase, 2259365419);
 	template<> MYPROJECT2_API UClass* StaticClass<AMyProject2GameModeBase>()
 	{
 		return AMyProject2GameModeBase::StaticClass();

@@ -54,5 +54,24 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
       }
    }
 }
+void AMyProject2GameModeBase::BeginPlay()
+{
+   SpawnPickup(); 
+}
+void AMyProject2GameModeBase::SpawnPickup()
+{
+   if(PickupLocations.Num() > 0 && PickupClasses.Num() > 0)
+   {
+      int32 RandomClassIndex = FMath::RandRange(0,PickupClasses.Num()-1);
+      TSubclassOf<AActor> ChosenPickupClass = PickupClasses[RandomClassIndex];
+
+      int32 RandomLocationIndex = FMath::RandRange(0,PickupLocations.Num() - 1);
+      FVector SpawnLocation = PickupLocations[RandomLocationIndex];
+
+      AActor* NewPickup = GetWorld()->SpawnActor<AActor>(ChosenPickupClass,SpawnLocation,FRotator::ZeroRotator); 
+   }
+}
+
+
 
 

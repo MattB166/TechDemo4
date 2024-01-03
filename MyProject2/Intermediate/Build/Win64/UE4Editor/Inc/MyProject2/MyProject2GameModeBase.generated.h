@@ -58,7 +58,12 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyProject2GameModeBase)
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__PickupLocations() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupLocations); } \
+	FORCEINLINE static uint32 __PPO__PickupClasses() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupClasses); } \
+	FORCEINLINE static uint32 __PPO__PickUpSpawnInterval() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickUpSpawnInterval); }
+
+
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_12_PROLOG
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

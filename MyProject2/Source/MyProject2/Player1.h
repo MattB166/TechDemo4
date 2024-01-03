@@ -81,6 +81,8 @@ public:
 	void HandleAim();
 	void TakeDamage(int damage);
 	void InitialisePlayer();
+	void Pickup();
+	void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 
 	
 	
 	
