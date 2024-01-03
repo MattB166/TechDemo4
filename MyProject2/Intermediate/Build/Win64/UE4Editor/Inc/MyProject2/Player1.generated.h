@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 #ifdef MYPROJECT2_Player1_generated_h
 #error "Player1.generated.h already included, missing '#pragma once' in Player1.h"
 #endif
@@ -16,11 +17,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define MyProject2_Source_MyProject2_Player1_h_17_SPARSE_DATA
 #define MyProject2_Source_MyProject2_Player1_h_17_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execReload);
 
 
 #define MyProject2_Source_MyProject2_Player1_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnActorOverlap); \
 	DECLARE_FUNCTION(execReload);
 
 

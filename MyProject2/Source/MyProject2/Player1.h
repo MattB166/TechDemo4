@@ -64,8 +64,10 @@ public:
 	FString PlayerHealthString;
 	UFUNCTION(BlueprintCallable,Category = "Player Stats")
 	void Reload();
-	
-	
+	UFUNCTION()
+	void OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickups")
+	class APickups* CurrentPickup; 
 	
 	
 	
@@ -81,9 +83,10 @@ public:
 	void HandleAim();
 	void TakeDamage(int damage);
 	void InitialisePlayer();
-	void Pickup();
-	void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 
-	
+	void AddAmmo(int amount);
+	// void Pickup();
+	// void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 
+	//
 	
 	
 
