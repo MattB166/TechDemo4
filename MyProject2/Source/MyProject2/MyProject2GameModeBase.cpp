@@ -2,6 +2,7 @@
 
 
 #include "MyProject2GameModeBase.h"
+#include "MyPlayerHUD.h"
 #include "Player1.h"
 #include "Blueprint/UserWidget.h"
 AMyProject2GameModeBase::AMyProject2GameModeBase()
@@ -56,6 +57,8 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
 }
 void AMyProject2GameModeBase::BeginPlay()
 {
+  
+
    SpawnPickup();
    GetWorldTimerManager().SetTimer(PickupSpawnTimerHandle,this,&AMyProject2GameModeBase::SpawnPickup,PickUpSpawnInterval,true); 
 }

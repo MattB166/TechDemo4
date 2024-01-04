@@ -40,6 +40,16 @@ void AMainMenuGameMode::PlayGame()
 	 GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("GAME PLAYING"));
 	GLog->Log("It works!");
 	UE_LOG(LogTemp, Warning, TEXT("PlayGame function called"));
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(),0);
+	if(PlayerController)
+	{
+		FInputModeGameOnly InputMode;
+		PlayerController->SetInputMode(InputMode);
+		PlayerController->bShowMouseCursor = false;
+		PlayerController->bEnableClickEvents = false;
+		PlayerController->bEnableMouseOverEvents = false;
+	}
+	UGameplayStatics::OpenLevel(GetWorld(),"TechDemo4Level1"); 
 }
 
 

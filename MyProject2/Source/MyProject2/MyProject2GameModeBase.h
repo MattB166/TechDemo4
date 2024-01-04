@@ -15,7 +15,9 @@ class MYPROJECT2_API AMyProject2GameModeBase : public AGameModeBase
 	GENERATED_BODY()
 public:
 	AMyProject2GameModeBase();
-	void DecrementPickUpCount(); 
+	void DecrementPickUpCount();
+	UPROPERTY()
+	class UMyPlayerHUD* PlayerHUD; 
 
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	int32 NumSpawnedPickups = 0;
