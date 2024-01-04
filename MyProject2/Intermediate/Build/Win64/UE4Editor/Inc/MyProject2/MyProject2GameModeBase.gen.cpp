@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	MYPROJECT2_API UClass* Z_Construct_UClass_UMyPlayerHUD_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AMyProject2GameModeBase::execRemoveSpawnedLocation)
 	{
@@ -102,6 +103,10 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickUpSpawnInterval_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_PickUpSpawnInterval;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HUDREF_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HUDREF;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -145,12 +150,20 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval = { "PickUpSpawnInterval", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, PickUpSpawnInterval), METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF = { "HUDREF", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, HUDREF), Z_Construct_UClass_UMyPlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyProject2GameModeBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyProject2GameModeBase>::IsAbstract,
@@ -179,7 +192,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProject2GameModeBase, 3174428460);
+	IMPLEMENT_CLASS(AMyProject2GameModeBase, 3368672426);
 	template<> MYPROJECT2_API UClass* StaticClass<AMyProject2GameModeBase>()
 	{
 		return AMyProject2GameModeBase::StaticClass();

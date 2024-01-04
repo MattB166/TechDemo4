@@ -6,7 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "MyPlayerHUD.generated.h"
 class APlayer1;
-
+class AMyProject2GameModeBase;
 
 
 /**
@@ -19,6 +19,8 @@ class MYPROJECT2_API UMyPlayerHUD : public UUserWidget
 public:
 	UPROPERTY(BlueprintReadOnly,Category = "Player")
 	APlayer1* OwningPlayer;
+
+	
 	
 
 	
@@ -42,15 +44,18 @@ public:
 	float GetRemainingTime()const;
 	
 	void SetOwningPlayer(APlayer1* Player);
+	void CompareForWinner();
+	void UpdateHUDForWinner(APlayer1* WinningPlayer);
 private:
 
-
+    
 	FTimerHandle RoundTimerHandle;
 	float RemainingTime;
 	float RoundDuration;
 
 	void OnRoundTimerTick();
 	void OnRoundExpired();
+
 	
 	
 };

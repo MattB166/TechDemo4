@@ -20,6 +20,7 @@ class MYPROJECT2_API APlayer1 : public ACharacter
 public:
 	// Sets default values for this character's properties
 	APlayer1();
+	//APlayerController* OwningPlayerController; 
 
 protected:
 	// Called when the game starts or when spawned
@@ -45,7 +46,11 @@ protected:
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Player Stats");
 	int32 AmmoInClip;
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Player Stats");
-	int32 PlayerScore = 0; 
+	int32 PlayerScore = 0;
+	UPROPERTY(VisibleAnywhere,Category = "Position")
+	FVector StartPos;
+	UPROPERTY(VisibleAnywhere,Category = "Position")
+	FRotator StartRot; 
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Niagara");
 	UNiagaraComponent* GunNiagara;
@@ -76,7 +81,13 @@ public:
 	UFUNCTION(BlueprintPure,Category = "Player Stats")
 	int32 GetPlayerScore() const;
 	UFUNCTION(BlueprintPure, Category = "Player Stats")
-	float GetHealthPercentage() const; 
+	float GetHealthPercentage() const;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Player Info")
+	int32 PlayerControllerID; 
+    UFUNCTION()
+	void SetHUDReference(UMyPlayerHUD* HUD);
+	UFUNCTION()
+	int32 GetControllerID();
 	
 	
 	
@@ -91,6 +102,7 @@ public:
 	void HandleAim();
 	void TakeDamage(int damage);
 	void InitialisePlayer();
+	void ResetPlayer(); 
 	void AddAmmo(int amount);
 	void AddHealth(int amount);
 	//int PlayerScore = 0;
@@ -109,5 +121,7 @@ public:
 
 
 	
-
+private:
+    UPROPERTY()
+	UMyPlayerHUD* PlayerHUD; 
 };

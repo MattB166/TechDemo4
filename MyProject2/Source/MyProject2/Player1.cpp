@@ -28,6 +28,16 @@ APlayer1::APlayer1()
 	PlayerSMC = nullptr; 
 	GunMesh = nullptr; 
 }
+void APlayer1::SetHUDReference(UMyPlayerHUD* HUD)
+{
+	PlayerHUD = HUD; 
+}
+
+int32 APlayer1::GetControllerID()
+{
+	return PlayerControllerID; 
+}
+
 
 // Called when the game starts or when spawned
 void APlayer1::BeginPlay()
@@ -35,7 +45,9 @@ void APlayer1::BeginPlay()
 	Super::BeginPlay();
 	
 	OnActorBeginOverlap.AddDynamic(this,&APlayer1::OnActorOverlap);
-	
+
+	StartPos = this->GetActorLocation();
+	StartRot = this->GetActorRotation();
 	
 	InitialisePlayer();
 	
@@ -72,11 +84,7 @@ void APlayer1::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void APlayer1::InitialisePlayer()
 {
-	PlayerHealth = 200;
-	TotalAmmo = 20;
-	ClipSize = 10;
-	AmmoInClip = 10;
-	PlayerSMC = GetMesh();
+	ResetPlayer(); 
 	if(UNiagaraComponent* NiagaraComponent = FindComponentByClass<UNiagaraComponent>())
 	{
 		GunNiagara = NiagaraComponent;
@@ -157,6 +165,16 @@ void APlayer1::InitialisePlayer()
 	
 }
 
+void APlayer1::ResetPlayer()
+{
+	PlayerHealth = 200;
+	TotalAmmo = 20;
+	ClipSize = 10;
+	AmmoInClip = 10;
+	PlayerSMC = GetMesh();
+	this->SetActorLocation(StartPos);
+	this->SetActorRotation(StartRot); 
+}
 
 
 void APlayer1::MoveForward(float AxisValue)
@@ -254,6 +272,7 @@ void APlayer1::Shoot()
 				TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes;
 				ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_Pawn));
 				ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_Visibility));
+				//ObjectTypes.Add(UEngineTypes::ConvertToObjectType(ECC_WorldDynamic)); 
 				bHit = GetWorld()->LineTraceSingleByObjectType(Hit,StartLocation,EndLocation,FCollisionObjectQueryParams(ObjectTypes),CollisionParams);
 
 
@@ -373,6 +392,8 @@ float APlayer1::GetHealthPercentage() const
 {
 	return (PlayerHealth / 200.0f) * 100.0f; 
 }
+
+
 
 
 // void APlayer1::Pickup()

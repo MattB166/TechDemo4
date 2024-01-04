@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Player1.h"
 #include "GameFramework/GameModeBase.h"
 #include "MyProject2GameModeBase.generated.h"
 class UMyPlayerHUD;
+class APlayer1; 
 
 /**
  * 
@@ -16,6 +18,8 @@ class MYPROJECT2_API AMyProject2GameModeBase : public AGameModeBase
 	GENERATED_BODY()
 public:
 	AMyProject2GameModeBase();
+	virtual void Tick(float DeltaTime) override;
+	
 	void DecrementPickUpCount();
 	void SetHUDReference(UMyPlayerHUD* HUD); 
 
@@ -44,6 +48,12 @@ protected:
 	virtual void BeginPlay() override;
 
 	void SpawnPickup(); 
+    UPROPERTY()
+	UMyPlayerHUD* HUDREF;
+	UMyPlayerHUD* HUDREF2; 
 
-	UMyPlayerHUD* HUDREF; 
+	APlayer1* Player1Character;
+	APlayer1* Player2Character;
+
+ 
 };

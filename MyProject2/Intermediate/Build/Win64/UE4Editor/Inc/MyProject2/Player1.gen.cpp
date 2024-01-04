@@ -18,16 +18,34 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_MyProject2();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	MYPROJECT2_API UClass* Z_Construct_UClass_UMyPlayerHUD_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBlendSpaceBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimationAsset_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 	NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	MYPROJECT2_API UClass* Z_Construct_UClass_APickups_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(APlayer1::execGetControllerID)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetControllerID();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(APlayer1::execSetHUDReference)
+	{
+		P_GET_OBJECT(UMyPlayerHUD,Z_Param_HUD);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetHUDReference(Z_Param_HUD);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayer1::execGetHealthPercentage)
 	{
 		P_FINISH;
@@ -70,13 +88,47 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	{
 		UClass* Class = APlayer1::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetControllerID", &APlayer1::execGetControllerID },
 			{ "GetHealthPercentage", &APlayer1::execGetHealthPercentage },
 			{ "GetPlayerScore", &APlayer1::execGetPlayerScore },
 			{ "OnActorOverlap", &APlayer1::execOnActorOverlap },
 			{ "Reload", &APlayer1::execReload },
+			{ "SetHUDReference", &APlayer1::execSetHUDReference },
 			{ "UpdateScore", &APlayer1::execUpdateScore },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_APlayer1_GetControllerID_Statics
+	{
+		struct Player1_eventGetControllerID_Parms
+		{
+			int32 ReturnValue;
+		};
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_APlayer1_GetControllerID_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player1_eventGetControllerID_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer1_GetControllerID_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer1_GetControllerID_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer1_GetControllerID_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer1_GetControllerID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer1, nullptr, "GetControllerID", nullptr, nullptr, sizeof(Player1_eventGetControllerID_Parms), Z_Construct_UFunction_APlayer1_GetControllerID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetControllerID_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_GetControllerID_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetControllerID_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer1_GetControllerID()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer1_GetControllerID_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics
 	{
@@ -203,6 +255,46 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer1_SetHUDReference_Statics
+	{
+		struct Player1_eventSetHUDReference_Parms
+		{
+			UMyPlayerHUD* HUD;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HUD_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HUD;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::NewProp_HUD_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::NewProp_HUD = { "HUD", nullptr, (EPropertyFlags)0x0010000000080080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Player1_eventSetHUDReference_Parms, HUD), Z_Construct_UClass_UMyPlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::NewProp_HUD_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::NewProp_HUD_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::NewProp_HUD,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer1, nullptr, "SetHUDReference", nullptr, nullptr, sizeof(Player1_eventSetHUDReference_Parms), Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer1_SetHUDReference()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer1_SetHUDReference_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayer1_UpdateScore_Statics
 	{
 		struct Player1_eventUpdateScore_Parms
@@ -287,6 +379,14 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PlayerScore;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartPos_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StartPos;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StartRot_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StartRot;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_GunNiagara_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_GunNiagara;
@@ -318,6 +418,14 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentPickup_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CurrentPickup;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerControllerID_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PlayerControllerID;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerHUD_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerHUD;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -327,10 +435,12 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject2,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer1_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_APlayer1_GetControllerID, "GetControllerID" }, // 1223631901
 		{ &Z_Construct_UFunction_APlayer1_GetHealthPercentage, "GetHealthPercentage" }, // 1023094241
 		{ &Z_Construct_UFunction_APlayer1_GetPlayerScore, "GetPlayerScore" }, // 156973615
 		{ &Z_Construct_UFunction_APlayer1_OnActorOverlap, "OnActorOverlap" }, // 3318064063
 		{ &Z_Construct_UFunction_APlayer1_Reload, "Reload" }, // 1278131382
+		{ &Z_Construct_UFunction_APlayer1_SetHUDReference, "SetHUDReference" }, // 1184832125
 		{ &Z_Construct_UFunction_APlayer1_UpdateScore, "UpdateScore" }, // 3485810985
 	};
 #if WITH_METADATA
@@ -412,6 +522,20 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerScore = { "PlayerScore", nullptr, (EPropertyFlags)0x0020080000020015, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, PlayerScore), METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerScore_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_StartPos_MetaData[] = {
+		{ "Category", "Position" },
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_StartPos = { "StartPos", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, StartPos), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_StartPos_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_StartPos_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_StartRot_MetaData[] = {
+		{ "Category", "Position" },
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_StartRot = { "StartRot", nullptr, (EPropertyFlags)0x0020080000020001, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, StartRot), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_StartRot_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_StartRot_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_GunNiagara_MetaData[] = {
 		{ "Category", "Niagara" },
 		{ "EditInline", "true" },
@@ -472,6 +596,20 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_CurrentPickup = { "CurrentPickup", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, CurrentPickup), Z_Construct_UClass_APickups_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_CurrentPickup_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_CurrentPickup_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerControllerID_MetaData[] = {
+		{ "Category", "Player Info" },
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerControllerID = { "PlayerControllerID", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, PlayerControllerID), METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerControllerID_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerControllerID_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHUD_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHUD = { "PlayerHUD", nullptr, (EPropertyFlags)0x0040000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, PlayerHUD), Z_Construct_UClass_UMyPlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHUD_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHUD_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayer1_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerBlend,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerJump,
@@ -483,6 +621,8 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_ClipSize,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_AmmoInClip,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerScore,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_StartPos,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_StartRot,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_GunNiagara,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_MySpringArm,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_GunMesh,
@@ -491,6 +631,8 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_HUDOverlayPlayer2,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHealthString,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_CurrentPickup,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerControllerID,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHUD,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayer1_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayer1>::IsAbstract,
@@ -519,7 +661,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer1, 2832203974);
+	IMPLEMENT_CLASS(APlayer1, 3273206513);
 	template<> MYPROJECT2_API UClass* StaticClass<APlayer1>()
 	{
 		return APlayer1::StaticClass();

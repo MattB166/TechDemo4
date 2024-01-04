@@ -1,0 +1,29 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-MyProject2-1699.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\MyProject2Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MainMenuGameMode.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyPlayerHUD.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyProject2.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyProject2GameModeBase.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyShooterGameMode.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyUserWidget.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\Pickups.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\Player1.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\TestPlayerController.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MainMenuGameMode.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyPlayerHUD.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyProject2.init.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyProject2GameModeBase.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyShooterGameMode.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\MyUserWidget.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\Pickups.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\Player1.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\TestPlayerController.gen.cpp.obj"
+"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\Default.rc2.res"
+/OUT:"C:\Users\Matth\Documents\UNI WORK\Actual Year 2\TechDemo4\MyProject2\Intermediate\Build\Win64\UE4Editor\Development\MyProject2\UE4Editor-MyProject2-1699.lib"

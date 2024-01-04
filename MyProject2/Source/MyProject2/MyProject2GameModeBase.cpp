@@ -8,6 +8,21 @@
 AMyProject2GameModeBase::AMyProject2GameModeBase()
 {
    DefaultPawnClass = APlayer1::StaticClass();
+   PrimaryActorTick.bCanEverTick = true;
+}
+
+void AMyProject2GameModeBase::Tick(float DeltaTime)
+{
+   Super::Tick(DeltaTime);
+   GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("TICKING"));
+   if(HUDREF->GetRemainingTime()==0)
+   {
+      EndRound();
+      HUDREF->StartTimer();
+      HUDREF2->StartTimer(); 
+   }
+  
+   
 }
 
 void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
@@ -23,12 +38,19 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
          if (PlayerIndex == 0)
          {
             
-            APlayer1* Player1Character = Cast<APlayer1>(NewPlayer->GetPawn());
+             Player1Character = Cast<APlayer1>(NewPlayer->GetPawn());
             if (Player1Character)
             {
+               Player1Character->PlayerControllerID = LocalPlayer->GetControllerId();
                Player1Character->HUDOverlayPlayer1 = CreateWidget<UUserWidget>(Cast<APlayerController>(Player1Character->GetController()), Player1Character->HUDOverlayAsset);
                if (Player1Character->HUDOverlayPlayer1)
                {
+                 APlayerController* PlayerController = Cast<APlayerController>(Player1Character->GetController());
+                  if(PlayerController)
+                  {
+                     Player1Character->HUDOverlayPlayer1->SetOwningPlayer(PlayerController);
+                     HUDREF = Cast<UMyPlayerHUD>(Player1Character->HUDOverlayPlayer1);
+                  }
                   Player1Character->HUDOverlayPlayer1->AddToPlayerScreen();
                   Player1Character->HUDOverlayPlayer1->SetVisibility(ESlateVisibility::Visible);
                   GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P1 HUD Set"));
@@ -40,20 +62,30 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
          else
          {
             
-             APlayer1* Player2Character = Cast<APlayer1>(NewPlayer->GetPawn());
+              Player2Character = Cast<APlayer1>(NewPlayer->GetPawn());
             if (Player2Character)
             {
+               Player2Character->PlayerControllerID = LocalPlayer->GetControllerId(); 
                Player2Character->HUDOverlayPlayer2 = CreateWidget<UUserWidget>(Cast<APlayerController>(Player2Character->GetController()), Player2Character->HUDOverlayAsset);
                if (Player2Character->HUDOverlayPlayer2)
                {
+                  APlayerController* PlayerController = Cast<APlayerController>(Player2Character->GetController());
+                  if(PlayerController)
+                  {
+                     Player2Character->HUDOverlayPlayer2->SetOwningPlayer(PlayerController);
+                     HUDREF2 = Cast<UMyPlayerHUD>(Player2Character->HUDOverlayPlayer2);
+                  }
                   Player2Character->HUDOverlayPlayer2->AddToPlayerScreen();
                   Player2Character->HUDOverlayPlayer2->SetVisibility(ESlateVisibility::Visible);
+                 
+                  
                   GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P2 HUD Set"));
                }
             }
          }
       }
    }
+   
 }
 void AMyProject2GameModeBase::BeginPlay()
 {
@@ -108,6 +140,24 @@ void AMyProject2GameModeBase::RemoveSpawnedLocation(const FVector& Location)
 
 void AMyProject2GameModeBase::EndRound()
 {
+   GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("ROUND ENDED"));
+
+   if(Player1Character->GetHealthPercentage() > Player2Character->GetHealthPercentage())
+   {
+      Player1Character->UpdateScore(1);
+   }
+   else if(Player2Character->GetHealthPercentage() > Player1Character->GetHealthPercentage())
+   {
+      Player2Character->UpdateScore(2); 
+   }
+   else if(Player1Character->GetHealthPercentage() == Player2Character->GetHealthPercentage())
+   {
+      ///tie 
+   }
+
+   Player1Character->ResetPlayer();
+   Player2Character->ResetPlayer();
+
    
    
 }

@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UMyPlayerHUD;
 class AActor;
 #ifdef MYPROJECT2_Player1_generated_h
 #error "Player1.generated.h already included, missing '#pragma once' in Player1.h"
@@ -17,6 +18,8 @@ class AActor;
 #define MyProject2_Source_MyProject2_Player1_h_18_SPARSE_DATA
 #define MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetControllerID); \
+	DECLARE_FUNCTION(execSetHUDReference); \
 	DECLARE_FUNCTION(execGetHealthPercentage); \
 	DECLARE_FUNCTION(execGetPlayerScore); \
 	DECLARE_FUNCTION(execUpdateScore); \
@@ -26,6 +29,8 @@ class AActor;
 
 #define MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetControllerID); \
+	DECLARE_FUNCTION(execSetHUDReference); \
 	DECLARE_FUNCTION(execGetHealthPercentage); \
 	DECLARE_FUNCTION(execGetPlayerScore); \
 	DECLARE_FUNCTION(execUpdateScore); \
@@ -86,9 +91,12 @@ public: \
 	FORCEINLINE static uint32 __PPO__ClipSize() { return STRUCT_OFFSET(APlayer1, ClipSize); } \
 	FORCEINLINE static uint32 __PPO__AmmoInClip() { return STRUCT_OFFSET(APlayer1, AmmoInClip); } \
 	FORCEINLINE static uint32 __PPO__PlayerScore() { return STRUCT_OFFSET(APlayer1, PlayerScore); } \
+	FORCEINLINE static uint32 __PPO__StartPos() { return STRUCT_OFFSET(APlayer1, StartPos); } \
+	FORCEINLINE static uint32 __PPO__StartRot() { return STRUCT_OFFSET(APlayer1, StartRot); } \
 	FORCEINLINE static uint32 __PPO__GunNiagara() { return STRUCT_OFFSET(APlayer1, GunNiagara); } \
 	FORCEINLINE static uint32 __PPO__MySpringArm() { return STRUCT_OFFSET(APlayer1, MySpringArm); } \
-	FORCEINLINE static uint32 __PPO__GunMesh() { return STRUCT_OFFSET(APlayer1, GunMesh); }
+	FORCEINLINE static uint32 __PPO__GunMesh() { return STRUCT_OFFSET(APlayer1, GunMesh); } \
+	FORCEINLINE static uint32 __PPO__PlayerHUD() { return STRUCT_OFFSET(APlayer1, PlayerHUD); }
 
 
 #define MyProject2_Source_MyProject2_Player1_h_15_PROLOG
