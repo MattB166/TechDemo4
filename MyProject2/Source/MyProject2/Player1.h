@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "MyProject2GameModeBase.h"
 #include "NiagaraSystem.h"
 #include "GameFramework/Character.h"
 #include "NiagaraComponent.h"
@@ -43,6 +44,8 @@ protected:
 	float ClipSize;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Player Stats");
 	int32 AmmoInClip;
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category = "Player Stats");
+	int32 PlayerScore = 0; 
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Niagara");
 	UNiagaraComponent* GunNiagara;
@@ -67,8 +70,13 @@ public:
 	UFUNCTION()
 	void OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor);
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickups")
-	class APickups* CurrentPickup; 
-	
+	class APickups* CurrentPickup;
+	UFUNCTION(BlueprintCallable)
+	void UpdateScore(int32 ScoreDelta);
+	UFUNCTION(BlueprintPure,Category = "Player Stats")
+	int32 GetPlayerScore() const;
+	UFUNCTION(BlueprintPure, Category = "Player Stats")
+	float GetHealthPercentage() const; 
 	
 	
 	
@@ -84,7 +92,8 @@ public:
 	void TakeDamage(int damage);
 	void InitialisePlayer();
 	void AddAmmo(int amount);
-	void AddHealth(int amount); 
+	void AddHealth(int amount);
+	//int PlayerScore = 0;
 	// void Pickup();
 	// void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 
 	//
@@ -97,5 +106,8 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+
+	
 
 };

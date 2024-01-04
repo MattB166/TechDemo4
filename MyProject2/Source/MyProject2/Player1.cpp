@@ -358,7 +358,21 @@ void APlayer1::AddHealth(int amount)
 		PlayerHealth += amount; 
 	}
 }
+void APlayer1::UpdateScore(int32 ScoreDelta)
+{
+	PlayerScore += ScoreDelta;
+	
+}
 
+int32 APlayer1::GetPlayerScore() const
+{
+	return PlayerScore; 
+}
+
+float APlayer1::GetHealthPercentage() const
+{
+	return (PlayerHealth / 200.0f) * 100.0f; 
+}
 
 
 // void APlayer1::Pickup()

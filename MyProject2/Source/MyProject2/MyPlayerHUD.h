@@ -7,6 +7,8 @@
 #include "MyPlayerHUD.generated.h"
 class APlayer1;
 
+
+
 /**
  * 
  */
@@ -17,6 +19,9 @@ class MYPROJECT2_API UMyPlayerHUD : public UUserWidget
 public:
 	UPROPERTY(BlueprintReadOnly,Category = "Player")
 	APlayer1* OwningPlayer;
+	
+
+	
 
 	UFUNCTION(BlueprintCallable,Category = "HUD")
 	void StartTimer();
@@ -26,6 +31,15 @@ public:
 
 	UFUNCTION(BlueprintCallable,Category = "HUD")
 	FString GetFormattedTime();
+
+	UPROPERTY(BlueprintReadOnly,Category = "Score")
+	int32 PlayerScore;
+
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	void UpdatePlayerScore(int32 NewScore);
+
+	UFUNCTION(BlueprintPure,Category = "HUD")
+	float GetRemainingTime()const;
 	
 	void SetOwningPlayer(APlayer1* Player);
 private:
@@ -37,5 +51,6 @@ private:
 
 	void OnRoundTimerTick();
 	void OnRoundExpired();
+	
 	
 };

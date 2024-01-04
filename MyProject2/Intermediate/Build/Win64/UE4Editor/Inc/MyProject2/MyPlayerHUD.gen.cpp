@@ -19,6 +19,21 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 	UPackage* Z_Construct_UPackage__Script_MyProject2();
 	MYPROJECT2_API UClass* Z_Construct_UClass_APlayer1_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UMyPlayerHUD::execGetRemainingTime)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(float*)Z_Param__Result=P_THIS->GetRemainingTime();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMyPlayerHUD::execUpdatePlayerScore)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewScore);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpdatePlayerScore(Z_Param_NewScore);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UMyPlayerHUD::execGetFormattedTime)
 	{
 		P_FINISH;
@@ -45,8 +60,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		UClass* Class = UMyPlayerHUD::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetFormattedTime", &UMyPlayerHUD::execGetFormattedTime },
+			{ "GetRemainingTime", &UMyPlayerHUD::execGetRemainingTime },
 			{ "StartTimer", &UMyPlayerHUD::execStartTimer },
 			{ "StopTimer", &UMyPlayerHUD::execStopTimer },
+			{ "UpdatePlayerScore", &UMyPlayerHUD::execUpdatePlayerScore },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -80,6 +97,39 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMyPlayerHUD_GetFormattedTime_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics
+	{
+		struct MyPlayerHUD_eventGetRemainingTime_Parms
+		{
+			float ReturnValue;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyPlayerHUD_eventGetRemainingTime_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HUD" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPlayerHUD, nullptr, "GetRemainingTime", nullptr, nullptr, sizeof(MyPlayerHUD_eventGetRemainingTime_Parms), Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -129,6 +179,39 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics
+	{
+		struct MyPlayerHUD_eventUpdatePlayerScore_Parms
+		{
+			int32 NewScore;
+		};
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_NewScore;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::NewProp_NewScore = { "NewScore", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyPlayerHUD_eventUpdatePlayerScore_Parms, NewScore), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::NewProp_NewScore,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HUD" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPlayerHUD, nullptr, "UpdatePlayerScore", nullptr, nullptr, sizeof(MyPlayerHUD_eventUpdatePlayerScore_Parms), Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UMyPlayerHUD_NoRegister()
 	{
 		return UMyPlayerHUD::StaticClass();
@@ -144,6 +227,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OwningPlayer_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OwningPlayer;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerScore_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PlayerScore;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -154,8 +241,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMyPlayerHUD_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMyPlayerHUD_GetFormattedTime, "GetFormattedTime" }, // 569472456
+		{ &Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime, "GetRemainingTime" }, // 3675637249
 		{ &Z_Construct_UFunction_UMyPlayerHUD_StartTimer, "StartTimer" }, // 1114946206
 		{ &Z_Construct_UFunction_UMyPlayerHUD_StopTimer, "StopTimer" }, // 1317343255
+		{ &Z_Construct_UFunction_UMyPlayerHUD_UpdatePlayerScore, "UpdatePlayerScore" }, // 780682506
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyPlayerHUD_Statics::Class_MetaDataParams[] = {
@@ -171,8 +260,16 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_OwningPlayer = { "OwningPlayer", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, OwningPlayer), Z_Construct_UClass_APlayer1_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_OwningPlayer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_OwningPlayer_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData[] = {
+		{ "Category", "Score" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore = { "PlayerScore", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, PlayerScore), METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyPlayerHUD_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_OwningPlayer,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMyPlayerHUD_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMyPlayerHUD>::IsAbstract,
@@ -201,7 +298,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMyPlayerHUD, 2370518706);
+	IMPLEMENT_CLASS(UMyPlayerHUD, 550597092);
 	template<> MYPROJECT2_API UClass* StaticClass<UMyPlayerHUD>()
 	{
 		return UMyPlayerHUD::StaticClass();

@@ -2,10 +2,15 @@
 
 
 #include "MyPlayerHUD.h"
+
+#include "MyProject2GameModeBase.h"
+
 void UMyPlayerHUD::SetOwningPlayer(APlayer1* Player)
 {
 	OwningPlayer = Player; 
 }
+
+
 void UMyPlayerHUD::StartTimer()
 {
 	RoundDuration = 180.0f;
@@ -34,8 +39,21 @@ void UMyPlayerHUD::OnRoundTimerTick()
 }
 void UMyPlayerHUD::OnRoundExpired()
 {
-	///expire round 
+	// if(GameModeReference)
+	// {
+	// 	GameModeReference->EndRound(); 
+	// }
 }
+void UMyPlayerHUD::UpdatePlayerScore(int32 NewScore)
+{
+	PlayerScore = NewScore; 
+}
+
+float UMyPlayerHUD::GetRemainingTime() const
+{
+	return RemainingTime; 
+}
+
 
 
 

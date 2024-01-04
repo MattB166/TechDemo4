@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "MyProject2GameModeBase.generated.h"
+class UMyPlayerHUD;
 
 /**
  * 
@@ -16,14 +17,15 @@ class MYPROJECT2_API AMyProject2GameModeBase : public AGameModeBase
 public:
 	AMyProject2GameModeBase();
 	void DecrementPickUpCount();
-	UPROPERTY()
-	class UMyPlayerHUD* PlayerHUD; 
+	void SetHUDReference(UMyPlayerHUD* HUD); 
 
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	int32 NumSpawnedPickups = 0;
 
 	UFUNCTION(BlueprintCallable)
-	void RemoveSpawnedLocation(const FVector& Location); 
+	void RemoveSpawnedLocation(const FVector& Location);
+
+	void EndRound(); 
 protected:
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Pickup")
 	TArray<FVector> PickupLocations;
@@ -42,5 +44,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	void SpawnPickup(); 
-	
+
+	UMyPlayerHUD* HUDREF; 
 };

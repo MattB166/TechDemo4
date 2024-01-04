@@ -14,18 +14,18 @@ struct FVector;
 #endif
 #define MYPROJECT2_MyProject2GameModeBase_generated_h
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_SPARSE_DATA
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_SPARSE_DATA
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execRemoveSpawnedLocation);
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execRemoveSpawnedLocation);
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_INCLASS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyProject2GameModeBase(); \
 	friend struct Z_Construct_UClass_AMyProject2GameModeBase_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMyProject2GameModeBase)
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_INCLASS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyProject2GameModeBase(); \
 	friend struct Z_Construct_UClass_AMyProject2GameModeBase_Statics; \
@@ -43,7 +43,7 @@ public: \
 	DECLARE_SERIALIZER(AMyProject2GameModeBase)
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_STANDARD_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyProject2GameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyProject2GameModeBase) \
@@ -56,7 +56,7 @@ private: \
 public:
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyProject2GameModeBase(AMyProject2GameModeBase&&); \
@@ -67,33 +67,33 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyProject2GameModeBase)
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__PickupLocations() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupLocations); } \
 	FORCEINLINE static uint32 __PPO__PickupClasses() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupClasses); } \
 	FORCEINLINE static uint32 __PPO__PickUpSpawnInterval() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickUpSpawnInterval); }
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_12_PROLOG
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_GENERATED_BODY_LEGACY \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_13_PROLOG
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_INCLASS \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_STANDARD_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_RPC_WRAPPERS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_INCLASS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_GENERATED_BODY \
+#define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_INCLASS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_15_ENHANCED_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_INCLASS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyProject2GameModeBase_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

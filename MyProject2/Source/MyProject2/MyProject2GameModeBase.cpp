@@ -40,7 +40,7 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
          else
          {
             
-            APlayer1* Player2Character = Cast<APlayer1>(NewPlayer->GetPawn());
+             APlayer1* Player2Character = Cast<APlayer1>(NewPlayer->GetPawn());
             if (Player2Character)
             {
                Player2Character->HUDOverlayPlayer2 = CreateWidget<UUserWidget>(Cast<APlayerController>(Player2Character->GetController()), Player2Character->HUDOverlayAsset);
@@ -95,9 +95,21 @@ void AMyProject2GameModeBase::DecrementPickUpCount()
       NumSpawnedPickups = 0; 
    }
 }
+
+void AMyProject2GameModeBase::SetHUDReference(UMyPlayerHUD* HUD)
+{
+   HUDREF = HUD; 
+}
+
 void AMyProject2GameModeBase::RemoveSpawnedLocation(const FVector& Location)
 {
    SpawnedLocations.Remove(Location); 
+}
+
+void AMyProject2GameModeBase::EndRound()
+{
+   
+   
 }
 
 
