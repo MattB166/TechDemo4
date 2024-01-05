@@ -163,7 +163,6 @@ void AMyProject2GameModeBase::EndRound()
 
    Player1Character->ResetPlayer();
    Player2Character->ResetPlayer();
-
    
    
 }

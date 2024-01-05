@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Image.h"
 #include "MyPlayerHUD.generated.h"
 class APlayer1;
 class AMyProject2GameModeBase;
@@ -19,9 +20,6 @@ class MYPROJECT2_API UMyPlayerHUD : public UUserWidget
 public:
 	UPROPERTY(BlueprintReadOnly,Category = "Player")
 	APlayer1* OwningPlayer;
-
-	
-	
 
 	
 

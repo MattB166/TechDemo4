@@ -3,6 +3,7 @@
 
 #include "MyPlayerHUD.h"
 
+
 #include "EngineUtils.h"
 #include "MyProject2GameModeBase.h"
 #include "Kismet/GameplayStatics.h"
@@ -68,6 +69,7 @@ void UMyPlayerHUD::CompareForWinner()
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("NO OWNING PLAYER"));
 	}
 }
+
 
 
 void UMyPlayerHUD::StartTimer()
