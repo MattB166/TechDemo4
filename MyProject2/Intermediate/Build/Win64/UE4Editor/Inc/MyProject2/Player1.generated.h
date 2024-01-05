@@ -15,8 +15,8 @@ class AActor;
 #endif
 #define MYPROJECT2_Player1_generated_h
 
-#define MyProject2_Source_MyProject2_Player1_h_18_SPARSE_DATA
-#define MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS \
+#define MyProject2_Source_MyProject2_Player1_h_19_SPARSE_DATA
+#define MyProject2_Source_MyProject2_Player1_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetControllerID); \
 	DECLARE_FUNCTION(execSetHUDReference); \
@@ -27,7 +27,7 @@ class AActor;
 	DECLARE_FUNCTION(execReload);
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_Player1_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetControllerID); \
 	DECLARE_FUNCTION(execSetHUDReference); \
@@ -38,7 +38,7 @@ class AActor;
 	DECLARE_FUNCTION(execReload);
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_INCLASS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_Player1_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayer1(); \
 	friend struct Z_Construct_UClass_APlayer1_Statics; \
@@ -47,7 +47,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer1)
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_INCLASS \
+#define MyProject2_Source_MyProject2_Player1_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesAPlayer1(); \
 	friend struct Z_Construct_UClass_APlayer1_Statics; \
@@ -56,7 +56,7 @@ public: \
 	DECLARE_SERIALIZER(APlayer1)
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_STANDARD_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_Player1_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API APlayer1(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(APlayer1) \
@@ -69,7 +69,7 @@ private: \
 public:
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_ENHANCED_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_Player1_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API APlayer1(APlayer1&&); \
@@ -80,11 +80,13 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(APlayer1)
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_PRIVATE_PROPERTY_OFFSET \
+#define MyProject2_Source_MyProject2_Player1_h_19_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__PlayerBlend() { return STRUCT_OFFSET(APlayer1, PlayerBlend); } \
 	FORCEINLINE static uint32 __PPO__PlayerJump() { return STRUCT_OFFSET(APlayer1, PlayerJump); } \
 	FORCEINLINE static uint32 __PPO__PlayerAim() { return STRUCT_OFFSET(APlayer1, PlayerAim); } \
 	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); } \
+	FORCEINLINE static uint32 __PPO__NewDeath() { return STRUCT_OFFSET(APlayer1, NewDeath); } \
+	FORCEINLINE static uint32 __PPO__ShotSound() { return STRUCT_OFFSET(APlayer1, ShotSound); } \
 	FORCEINLINE static uint32 __PPO__PlayerSMC() { return STRUCT_OFFSET(APlayer1, PlayerSMC); } \
 	FORCEINLINE static uint32 __PPO__PlayerHealth() { return STRUCT_OFFSET(APlayer1, PlayerHealth); } \
 	FORCEINLINE static uint32 __PPO__TotalAmmo() { return STRUCT_OFFSET(APlayer1, TotalAmmo); } \
@@ -99,27 +101,27 @@ public: \
 	FORCEINLINE static uint32 __PPO__PlayerHUD() { return STRUCT_OFFSET(APlayer1, PlayerHUD); }
 
 
-#define MyProject2_Source_MyProject2_Player1_h_15_PROLOG
-#define MyProject2_Source_MyProject2_Player1_h_18_GENERATED_BODY_LEGACY \
+#define MyProject2_Source_MyProject2_Player1_h_16_PROLOG
+#define MyProject2_Source_MyProject2_Player1_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_Player1_h_18_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_Player1_h_18_SPARSE_DATA \
-	MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS \
-	MyProject2_Source_MyProject2_Player1_h_18_INCLASS \
-	MyProject2_Source_MyProject2_Player1_h_18_STANDARD_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_Player1_h_19_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_Player1_h_19_SPARSE_DATA \
+	MyProject2_Source_MyProject2_Player1_h_19_RPC_WRAPPERS \
+	MyProject2_Source_MyProject2_Player1_h_19_INCLASS \
+	MyProject2_Source_MyProject2_Player1_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject2_Source_MyProject2_Player1_h_18_GENERATED_BODY \
+#define MyProject2_Source_MyProject2_Player1_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_Player1_h_18_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_Player1_h_18_SPARSE_DATA \
-	MyProject2_Source_MyProject2_Player1_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_Player1_h_18_INCLASS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_Player1_h_18_ENHANCED_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_Player1_h_19_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_Player1_h_19_SPARSE_DATA \
+	MyProject2_Source_MyProject2_Player1_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_Player1_h_19_INCLASS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_Player1_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

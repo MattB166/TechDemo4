@@ -7,6 +7,7 @@
 #include "NiagaraSystem.h"
 #include "GameFramework/Character.h"
 #include "NiagaraComponent.h"
+#include "Sound/SoundBase.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Player1.generated.h"
@@ -34,7 +35,11 @@ protected:
 	UBlendSpaceBase* PlayerBlend;
 	UPROPERTY(EditAnywhere)UAnimationAsset* PlayerJump;
 	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerAim;
-	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot; 
+	UPROPERTY(EditAnywhere, Category = "Aiming/Shooting")UAnimMontage* PlayerShoot;
+	//UPROPERTY(EditAnywhere,Category = "DEATH")UAnimMontage* PlayerDeath;
+	UPROPERTY(EditAnywhere,Category = "DEATH MAIN ANIM")UAnimationAsset* NewDeath;
+	UPROPERTY(EditAnywhere,Category = "Sounds")
+	class USoundBase* ShotSound;
     UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "MESH");
 	USkeletalMeshComponent* PlayerSMC;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");

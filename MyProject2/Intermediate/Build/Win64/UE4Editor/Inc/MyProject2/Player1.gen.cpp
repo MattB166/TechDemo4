@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	ENGINE_API UClass* Z_Construct_UClass_UBlendSpaceBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimationAsset_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
@@ -355,6 +356,14 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerShoot;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NewDeath_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_NewDeath;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ShotSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ShotSound;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerSMC_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PlayerSMC;
@@ -478,6 +487,22 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerShoot = { "PlayerShoot", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, PlayerShoot), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerShoot_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerShoot_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_NewDeath_MetaData[] = {
+		{ "Category", "DEATH MAIN ANIM" },
+		{ "Comment", "//UPROPERTY(EditAnywhere,Category = \"DEATH\")UAnimMontage* PlayerDeath;\n" },
+		{ "ModuleRelativePath", "Player1.h" },
+		{ "ToolTip", "UPROPERTY(EditAnywhere,Category = \"DEATH\")UAnimMontage* PlayerDeath;" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_NewDeath = { "NewDeath", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, NewDeath), Z_Construct_UClass_UAnimationAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_NewDeath_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_NewDeath_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_ShotSound_MetaData[] = {
+		{ "Category", "Sounds" },
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayer1_Statics::NewProp_ShotSound = { "ShotSound", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APlayer1, ShotSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APlayer1_Statics::NewProp_ShotSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APlayer1_Statics::NewProp_ShotSound_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerSMC_MetaData[] = {
 		{ "Category", "MESH" },
@@ -615,6 +640,8 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerJump,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerAim,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerShoot,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_NewDeath,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_ShotSound,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerSMC,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_PlayerHealth,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayer1_Statics::NewProp_TotalAmmo,
@@ -661,7 +688,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer1, 3273206513);
+	IMPLEMENT_CLASS(APlayer1, 689118840);
 	template<> MYPROJECT2_API UClass* StaticClass<APlayer1>()
 	{
 		return APlayer1::StaticClass();

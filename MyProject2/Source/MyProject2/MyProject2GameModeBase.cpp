@@ -21,6 +21,12 @@ void AMyProject2GameModeBase::Tick(float DeltaTime)
       HUDREF->StartTimer();
       HUDREF2->StartTimer(); 
    }
+   else if(Player1Character->GetHealthPercentage() == 0 || Player2Character->GetHealthPercentage() == 0)
+   {
+      EndRound();
+      HUDREF->StartTimer();
+      HUDREF2->StartTimer(); 
+   }
   
    
 }

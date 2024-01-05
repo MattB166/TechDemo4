@@ -254,7 +254,8 @@ void APlayer1::Shoot()
 		PlayAnimMontage(PlayerShoot);
 		if(AmmoInClip > 0)
 		{
-            bool bHit;
+            UGameplayStatics::SpawnSoundAtLocation(this,ShotSound,GetActorLocation()); 
+			bool bHit;
 			FHitResult Hit;
 			//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("SHOOTING"));
 			if(GunMesh)
@@ -346,8 +347,14 @@ void APlayer1::TakeDamage(int damage)
 	else if(PlayerHealth <= 0)
 	{
 		PlayerHealth = 0;
-		///player die
-		///next level 
+		//PlayAnimMontage(PlayerDeath);
+		if(NewDeath)
+		{
+			PlayerSMC->PlayAnimation(NewDeath,false);
+			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("DYING ANIM PLAYED"));
+		}
+		
+		
 	}
 	
 }

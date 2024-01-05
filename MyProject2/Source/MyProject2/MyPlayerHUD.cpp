@@ -72,7 +72,7 @@ void UMyPlayerHUD::CompareForWinner()
 
 void UMyPlayerHUD::StartTimer()
 {
-	RoundDuration = 15.0f;
+	RoundDuration = 180.0f;
 	RemainingTime = RoundDuration;
 
 	GetWorld()->GetTimerManager().SetTimer(RoundTimerHandle,this,&UMyPlayerHUD::OnRoundTimerTick,1.0f,true);
