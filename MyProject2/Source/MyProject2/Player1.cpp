@@ -400,9 +400,9 @@ int32 APlayer1::GetPlayerScore() const
 	return PlayerScore; 
 }
 
-float APlayer1::GetHealthPercentage() const
+float APlayer1::GetHealthPercentage()
 {
-	return (PlayerHealth / 200.0f) * 100.0f; 
+	return(PlayerHealth / 200.0f) * 100.0f; 
 }
 
 

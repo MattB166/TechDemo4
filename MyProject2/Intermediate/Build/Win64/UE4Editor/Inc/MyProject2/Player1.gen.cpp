@@ -146,7 +146,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		{ "ModuleRelativePath", "Player1.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer1, nullptr, "GetHealthPercentage", nullptr, nullptr, sizeof(Player1_eventGetHealthPercentage_Parms), Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer1, nullptr, "GetHealthPercentage", nullptr, nullptr, sizeof(Player1_eventGetHealthPercentage_Parms), Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_GetHealthPercentage_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_APlayer1_GetHealthPercentage()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -394,7 +394,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayer1_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_APlayer1_GetControllerID, "GetControllerID" }, // 3662368860
-		{ &Z_Construct_UFunction_APlayer1_GetHealthPercentage, "GetHealthPercentage" }, // 1023094241
+		{ &Z_Construct_UFunction_APlayer1_GetHealthPercentage, "GetHealthPercentage" }, // 3509394923
 		{ &Z_Construct_UFunction_APlayer1_GetPlayerScore, "GetPlayerScore" }, // 156973615
 		{ &Z_Construct_UFunction_APlayer1_OnActorOverlap, "OnActorOverlap" }, // 3318064063
 		{ &Z_Construct_UFunction_APlayer1_Reload, "Reload" }, // 1278131382
@@ -632,7 +632,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer1, 557384326);
+	IMPLEMENT_CLASS(APlayer1, 2326625517);
 	template<> MYPROJECT2_API UClass* StaticClass<APlayer1>()
 	{
 		return APlayer1::StaticClass();

@@ -160,11 +160,36 @@ void AMyProject2GameModeBase::EndRound()
    {
       ///tie 
    }
-
+   
    Player1Character->ResetPlayer();
    Player2Character->ResetPlayer();
-   ++RoundNumber; 
+   if(RoundNumber < 5)
+   {
+      ++RoundNumber; 
+   }
+   else if(RoundNumber == 5)
+   {
+      //// decide winner 
+   }
    
+   
+}
+
+void AMyProject2GameModeBase::DecideOverallWinner()
+{
+   int32 P1Score = Player1Character->GetPlayerScore();
+   int32 P2Score = Player2Character->GetPlayerScore();
+
+   if(P2Score > P1Score)
+   {
+      ///p2 wins. display on HUD
+   }
+   else if(P1Score > P2Score)
+   {
+      ///p1 wins. display om HUD
+      
+      
+   }
 }
 
 

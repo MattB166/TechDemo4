@@ -84,7 +84,7 @@ public:
 	UFUNCTION(BlueprintPure,Category = "Player Stats")
 	int32 GetPlayerScore() const;
 	UFUNCTION(BlueprintPure, Category = "Player Stats")
-	float GetHealthPercentage() const;
+	float GetHealthPercentage();
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Player Info")
 	int32 PlayerControllerID; 
  //    UFUNCTION()

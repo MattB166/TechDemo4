@@ -28,7 +28,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RemoveSpawnedLocation(const FVector& Location);
 
-	void EndRound(); 
+	void EndRound();
+	void DecideOverallWinner(); 
 protected:
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Pickup")
 	TArray<FVector> PickupLocations;
