@@ -70,9 +70,7 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
 	TSubclassOf<class UUserWidget>HUDOverlayAsset;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
-	UUserWidget* HUDOverlayPlayer1;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI");
-	UUserWidget* HUDOverlayPlayer2;
+	UUserWidget* HUDOverlayPlayer;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "UI");
 	FString PlayerHealthString;
 	UFUNCTION(BlueprintCallable,Category = "Player Stats")
@@ -89,11 +87,12 @@ public:
 	float GetHealthPercentage() const;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Player Info")
 	int32 PlayerControllerID; 
-    UFUNCTION()
-	void SetHUDReference(UMyPlayerHUD* HUD);
+ //    UFUNCTION()
+	// void SetHUDReference(UMyPlayerHUD* HUD);
 	UFUNCTION()
 	int32 GetControllerID();
-	
+	UPROPERTY()
+	// UMyPlayerHUD* PlayerHUD;
 	
 	
 
@@ -127,6 +126,5 @@ public:
 
 	
 private:
-    UPROPERTY()
-	UMyPlayerHUD* PlayerHUD; 
+     
 };

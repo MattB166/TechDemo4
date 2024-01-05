@@ -18,9 +18,17 @@ class MYPROJECT2_API UMyPlayerHUD : public UUserWidget
 {
 	GENERATED_BODY()
 public:
+
+   virtual void NativeConstruct() override;
+	
 	UPROPERTY(BlueprintReadOnly,Category = "Player")
 	APlayer1* OwningPlayer;
 
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* HitTrack;
+
+	UFUNCTION(BlueprintCallable,Category = "Anims")
+	void PlayDamageAnim();
 	
 
 	UFUNCTION(BlueprintCallable,Category = "HUD")

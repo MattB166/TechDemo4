@@ -71,6 +71,21 @@ void UMyPlayerHUD::CompareForWinner()
 }
 
 
+void UMyPlayerHUD::NativeConstruct()
+{
+	Super::NativeConstruct();
+
+	PlayAnimation(HitTrack,0,1); 
+}
+
+void UMyPlayerHUD::PlayDamageAnim()
+{
+    if(HitTrack)
+    {
+    	PlayAnimation(HitTrack,0,1); 
+    }
+	
+}
 
 void UMyPlayerHUD::StartTimer()
 {

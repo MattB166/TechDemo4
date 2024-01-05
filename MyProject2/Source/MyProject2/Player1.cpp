@@ -7,6 +7,7 @@
 
 //#include "DrawDebugHelpers.h"
 #include "DrawDebugHelpers.h"
+#include "MyPlayerHUD.h"
 #include "MyProject2.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Blueprint/UserWidget.h"
@@ -15,6 +16,7 @@
 #include "GameFramework/PlayerState.h"
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
+class MyPlayerHUD;
 
 
 // Sets default values
@@ -28,10 +30,10 @@ APlayer1::APlayer1()
 	PlayerSMC = nullptr; 
 	GunMesh = nullptr; 
 }
-void APlayer1::SetHUDReference(UMyPlayerHUD* HUD)
-{
-	PlayerHUD = HUD; 
-}
+// void APlayer1::SetHUDReference(UMyPlayerHUD* HUD)
+// {
+// 	PlayerHUD = HUD; 
+// }
 
 int32 APlayer1::GetControllerID()
 {
@@ -277,7 +279,7 @@ void APlayer1::Shoot()
 				bHit = GetWorld()->LineTraceSingleByObjectType(Hit,StartLocation,EndLocation,FCollisionObjectQueryParams(ObjectTypes),CollisionParams);
 
 
-				DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green,true,-1,0,1.f);
+				//DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green,true,-1,0,1.f);
 
 			}
 			if(bHit)
@@ -340,7 +342,9 @@ void APlayer1::Reload()
 }
 void APlayer1::TakeDamage(int damage)
 {
-    if(PlayerHealth > 0)
+    Cast<UMyPlayerHUD>(HUDOverlayPlayer)->PlayDamageAnim(); 
+	
+	if(PlayerHealth > 0)
     {
     	PlayerHealth -= damage; 
     }
@@ -350,6 +354,7 @@ void APlayer1::TakeDamage(int damage)
 		//PlayAnimMontage(PlayerDeath);
 		if(NewDeath)
 		{
+            /////delay 
 			PlayerSMC->PlayAnimation(NewDeath,false);
 			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("DYING ANIM PLAYED"));
 		}

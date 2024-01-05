@@ -48,19 +48,19 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
             if (Player1Character)
             {
                Player1Character->PlayerControllerID = LocalPlayer->GetControllerId();
-               Player1Character->HUDOverlayPlayer1 = CreateWidget<UUserWidget>(Cast<APlayerController>(Player1Character->GetController()), Player1Character->HUDOverlayAsset);
-               if (Player1Character->HUDOverlayPlayer1)
+               Player1Character->HUDOverlayPlayer = CreateWidget<UUserWidget>(Cast<APlayerController>(Player1Character->GetController()), Player1Character->HUDOverlayAsset);
+               if (Player1Character->HUDOverlayPlayer)
                {
-                 APlayerController* PlayerController = Cast<APlayerController>(Player1Character->GetController());
+                  APlayerController* PlayerController = Cast<APlayerController>(Player1Character->GetController());
                   if(PlayerController)
                   {
-                     Player1Character->HUDOverlayPlayer1->SetOwningPlayer(PlayerController);
-                     HUDREF = Cast<UMyPlayerHUD>(Player1Character->HUDOverlayPlayer1);
+                     Player1Character->HUDOverlayPlayer->SetOwningPlayer(PlayerController);
+                     HUDREF = Cast<UMyPlayerHUD>(Player1Character->HUDOverlayPlayer);
                   }
-                  Player1Character->HUDOverlayPlayer1->AddToPlayerScreen();
-                  Player1Character->HUDOverlayPlayer1->SetVisibility(ESlateVisibility::Visible);
+                  Player1Character->HUDOverlayPlayer->AddToPlayerScreen();
+                  Player1Character->HUDOverlayPlayer->SetVisibility(ESlateVisibility::Visible);
                   GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P1 HUD Set"));
-                  FVector2D WidgetPos = Player1Character->HUDOverlayPlayer1->GetCachedGeometry().ToPaintGeometry().GetAccumulatedRenderTransform().GetTranslation();
+                  FVector2D WidgetPos = Player1Character->HUDOverlayPlayer->GetCachedGeometry().ToPaintGeometry().GetAccumulatedRenderTransform().GetTranslation();
                   GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("P1 HUD Position: X=%.2f, Y=%.2f"), WidgetPos.X, WidgetPos.Y));
                }
             }
@@ -72,17 +72,17 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
             if (Player2Character)
             {
                Player2Character->PlayerControllerID = LocalPlayer->GetControllerId(); 
-               Player2Character->HUDOverlayPlayer2 = CreateWidget<UUserWidget>(Cast<APlayerController>(Player2Character->GetController()), Player2Character->HUDOverlayAsset);
-               if (Player2Character->HUDOverlayPlayer2)
+               Player2Character->HUDOverlayPlayer = CreateWidget<UUserWidget>(Cast<APlayerController>(Player2Character->GetController()), Player2Character->HUDOverlayAsset);
+               if (Player2Character->HUDOverlayPlayer)
                {
                   APlayerController* PlayerController = Cast<APlayerController>(Player2Character->GetController());
                   if(PlayerController)
                   {
-                     Player2Character->HUDOverlayPlayer2->SetOwningPlayer(PlayerController);
-                     HUDREF2 = Cast<UMyPlayerHUD>(Player2Character->HUDOverlayPlayer2);
+                     Player2Character->HUDOverlayPlayer->SetOwningPlayer(PlayerController);
+                     HUDREF2 = Cast<UMyPlayerHUD>(Player2Character->HUDOverlayPlayer);
                   }
-                  Player2Character->HUDOverlayPlayer2->AddToPlayerScreen();
-                  Player2Character->HUDOverlayPlayer2->SetVisibility(ESlateVisibility::Visible);
+                  Player2Character->HUDOverlayPlayer->AddToPlayerScreen();
+                  Player2Character->HUDOverlayPlayer->SetVisibility(ESlateVisibility::Visible);
                  
                   
                   GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P2 HUD Set"));
@@ -154,7 +154,7 @@ void AMyProject2GameModeBase::EndRound()
    }
    else if(Player2Character->GetHealthPercentage() > Player1Character->GetHealthPercentage())
    {
-      Player2Character->UpdateScore(2); 
+      Player2Character->UpdateScore(1); 
    }
    else if(Player1Character->GetHealthPercentage() == Player2Character->GetHealthPercentage())
    {
@@ -163,7 +163,7 @@ void AMyProject2GameModeBase::EndRound()
 
    Player1Character->ResetPlayer();
    Player2Character->ResetPlayer();
-   
+   ++RoundNumber; 
    
 }
 

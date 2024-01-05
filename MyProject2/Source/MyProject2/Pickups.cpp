@@ -42,6 +42,7 @@ void APickups::OnPickupCollected_Implementation(APlayer1* Player)
 		break;
 	case EPickUpType::Health:
 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP HEALTH"));
+		Player->AddHealth(amount); 
 		break;
 	case EPickUpType::DamageMultiplier:
 		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP MULTIPLIER"));

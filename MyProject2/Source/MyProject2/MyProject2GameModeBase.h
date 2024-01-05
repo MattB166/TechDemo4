@@ -9,9 +9,7 @@
 class UMyPlayerHUD;
 class APlayer1; 
 
-/**
- * 
- */
+
 UCLASS()
 class MYPROJECT2_API AMyProject2GameModeBase : public AGameModeBase
 {
@@ -25,6 +23,7 @@ public:
 
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	int32 NumSpawnedPickups = 0;
+	int32 RoundNumber = 1; 
 
 	UFUNCTION(BlueprintCallable)
 	void RemoveSpawnedLocation(const FVector& Location);

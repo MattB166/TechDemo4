@@ -120,7 +120,6 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering Utilities|Transformation" },
 		{ "IncludePath", "MyProject2GameModeBase.h" },
 		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
@@ -192,7 +191,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProject2GameModeBase, 3368672426);
+	IMPLEMENT_CLASS(AMyProject2GameModeBase, 1182212679);
 	template<> MYPROJECT2_API UClass* StaticClass<AMyProject2GameModeBase>()
 	{
 		return AMyProject2GameModeBase::StaticClass();

@@ -20,7 +20,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execUpdatePlayerScore); \
 	DECLARE_FUNCTION(execGetFormattedTime); \
 	DECLARE_FUNCTION(execStopTimer); \
-	DECLARE_FUNCTION(execStartTimer);
+	DECLARE_FUNCTION(execStartTimer); \
+	DECLARE_FUNCTION(execPlayDamageAnim);
 
 
 #define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
@@ -29,7 +30,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execUpdatePlayerScore); \
 	DECLARE_FUNCTION(execGetFormattedTime); \
 	DECLARE_FUNCTION(execStopTimer); \
-	DECLARE_FUNCTION(execStartTimer);
+	DECLARE_FUNCTION(execStartTimer); \
+	DECLARE_FUNCTION(execPlayDamageAnim);
 
 
 #define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_INCLASS_NO_PURE_DECLS \
