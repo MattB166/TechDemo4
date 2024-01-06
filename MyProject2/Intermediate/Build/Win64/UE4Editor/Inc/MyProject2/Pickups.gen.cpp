@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 	MYPROJECT2_API UClass* Z_Construct_UClass_APickups();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	MYPROJECT2_API UClass* Z_Construct_UClass_APlayer1_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 // End Cross Module References
 	static UEnum* EPickUpType_StaticEnum()
 	{
@@ -148,6 +149,10 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_amount_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_amount;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PickupSound_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_PickupSound;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -182,10 +187,18 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APickups_Statics::NewProp_amount = { "amount", nullptr, (EPropertyFlags)0x0010000000000015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APickups, amount), METADATA_PARAMS(Z_Construct_UClass_APickups_Statics::NewProp_amount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APickups_Statics::NewProp_amount_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APickups_Statics::NewProp_PickupSound_MetaData[] = {
+		{ "Category", "Sounds" },
+		{ "ModuleRelativePath", "Pickups.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APickups_Statics::NewProp_PickupSound = { "PickupSound", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(APickups, PickupSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_APickups_Statics::NewProp_PickupSound_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_APickups_Statics::NewProp_PickupSound_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APickups_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickups_Statics::NewProp_PickUp_Underlying,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickups_Statics::NewProp_PickUp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickups_Statics::NewProp_amount,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickups_Statics::NewProp_PickupSound,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APickups_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APickups>::IsAbstract,
@@ -214,7 +227,7 @@ void EmptyLinkFunctionForGeneratedCodePickups() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APickups, 3085137210);
+	IMPLEMENT_CLASS(APickups, 1985633786);
 	template<> MYPROJECT2_API UClass* StaticClass<APickups>()
 	{
 		return APickups::StaticClass();

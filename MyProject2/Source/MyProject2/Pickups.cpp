@@ -5,6 +5,7 @@
 
 #include "MyProject2GameModeBase.h"
 #include "Player1.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 APickups::APickups()
@@ -32,20 +33,27 @@ void APickups::OnPickUpCollected_Implementation()
 	
 }
 
+void APickups::PlayPickUpSound()
+{
+	UGameplayStatics::SpawnSound2D(this,PickupSound); 
+}
+
 void APickups::OnPickupCollected_Implementation(APlayer1* Player)
 {
 	switch (PickUp)
 	{
 	case EPickUpType::Ammo:
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP AMMO"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP AMMO"));
+		PlayPickUpSound();
 		Player->AddAmmo(amount);
 		break;
 	case EPickUpType::Health:
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP HEALTH"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP HEALTH"));
+		PlayPickUpSound(); 
 		Player->AddHealth(amount); 
 		break;
 	case EPickUpType::DamageMultiplier:
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP MULTIPLIER"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Orange,TEXT("PICKED UP MULTIPLIER"));
 		break;
 		default:
 			break; 

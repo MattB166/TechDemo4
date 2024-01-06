@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 	UPackage* Z_Construct_UPackage__Script_MyProject2();
 	MYPROJECT2_API UClass* Z_Construct_UClass_APlayer1_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UWidgetAnimation_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UMyPlayerHUD::execGetRemainingTime)
 	{
@@ -33,6 +34,21 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->UpdatePlayerScore(Z_Param_NewScore);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMyPlayerHUD::execClearWinnerText)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClearWinnerText();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UMyPlayerHUD::execDisplayWinnerText)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_WinnerText);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->DisplayWinnerText(Z_Param_WinnerText);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UMyPlayerHUD::execGetFormattedTime)
@@ -67,6 +83,8 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 	{
 		UClass* Class = UMyPlayerHUD::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ClearWinnerText", &UMyPlayerHUD::execClearWinnerText },
+			{ "DisplayWinnerText", &UMyPlayerHUD::execDisplayWinnerText },
 			{ "GetFormattedTime", &UMyPlayerHUD::execGetFormattedTime },
 			{ "GetRemainingTime", &UMyPlayerHUD::execGetRemainingTime },
 			{ "PlayDamageAnim", &UMyPlayerHUD::execPlayDamageAnim },
@@ -75,6 +93,70 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 			{ "UpdatePlayerScore", &UMyPlayerHUD::execUpdatePlayerScore },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HUD" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPlayerHUD, nullptr, "ClearWinnerText", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics
+	{
+		struct MyPlayerHUD_eventDisplayWinnerText_Parms
+		{
+			FString WinnerText;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WinnerText_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_WinnerText;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::NewProp_WinnerText_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::NewProp_WinnerText = { "WinnerText", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MyPlayerHUD_eventDisplayWinnerText_Parms, WinnerText), METADATA_PARAMS(Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::NewProp_WinnerText_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::NewProp_WinnerText_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::NewProp_WinnerText,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HUD" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyPlayerHUD, nullptr, "DisplayWinnerText", nullptr, nullptr, sizeof(MyPlayerHUD_eventDisplayWinnerText_Parms), Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UMyPlayerHUD_GetFormattedTime_Statics
 	{
@@ -264,9 +346,17 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HitTrack;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_WinnerTextBlock_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_WinnerTextBlock;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PlayerScore_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_PlayerScore;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Winner_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FTextPropertyParams NewProp_Winner;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -276,6 +366,8 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_MyProject2,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMyPlayerHUD_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UMyPlayerHUD_ClearWinnerText, "ClearWinnerText" }, // 1365967869
+		{ &Z_Construct_UFunction_UMyPlayerHUD_DisplayWinnerText, "DisplayWinnerText" }, // 2349868741
 		{ &Z_Construct_UFunction_UMyPlayerHUD_GetFormattedTime, "GetFormattedTime" }, // 569472456
 		{ &Z_Construct_UFunction_UMyPlayerHUD_GetRemainingTime, "GetRemainingTime" }, // 3675637249
 		{ &Z_Construct_UFunction_UMyPlayerHUD_PlayDamageAnim, "PlayDamageAnim" }, // 1551835839
@@ -306,16 +398,34 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_HitTrack = { "HitTrack", nullptr, (EPropertyFlags)0x0010000000022015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, HitTrack), Z_Construct_UClass_UWidgetAnimation_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_HitTrack_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_HitTrack_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_WinnerTextBlock_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "MyPlayerHUD" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_WinnerTextBlock = { "WinnerTextBlock", nullptr, (EPropertyFlags)0x00100000000a201d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, WinnerTextBlock), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_WinnerTextBlock_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_WinnerTextBlock_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData[] = {
 		{ "Category", "Score" },
 		{ "ModuleRelativePath", "MyPlayerHUD.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore = { "PlayerScore", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, PlayerScore), METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_Winner_MetaData[] = {
+		{ "Category", "Winner" },
+		{ "ModuleRelativePath", "MyPlayerHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FTextPropertyParams Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_Winner = { "Winner", nullptr, (EPropertyFlags)0x0010000000000014, UE4CodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyPlayerHUD, Winner), METADATA_PARAMS(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_Winner_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_Winner_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyPlayerHUD_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_OwningPlayer,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_HitTrack,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_WinnerTextBlock,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_PlayerScore,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyPlayerHUD_Statics::NewProp_Winner,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMyPlayerHUD_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMyPlayerHUD>::IsAbstract,
@@ -344,7 +454,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerHUD() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMyPlayerHUD, 1406090706);
+	IMPLEMENT_CLASS(UMyPlayerHUD, 1344652189);
 	template<> MYPROJECT2_API UClass* StaticClass<UMyPlayerHUD>()
 	{
 		return UMyPlayerHUD::StaticClass();

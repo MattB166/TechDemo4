@@ -40,6 +40,8 @@ protected:
 	UPROPERTY(EditAnywhere,Category = "DEATH MAIN ANIM")UAnimationAsset* NewDeath;
 	UPROPERTY(EditAnywhere,Category = "Sounds")
 	class USoundBase* ShotSound;
+	UPROPERTY(EditAnywhere,Category = "Sounds")
+	class USoundBase* HurtSound; 
     UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "MESH");
 	USkeletalMeshComponent* PlayerSMC;
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Player Stats");
@@ -55,7 +57,8 @@ protected:
 	UPROPERTY(VisibleAnywhere,Category = "Position")
 	FVector StartPos;
 	UPROPERTY(VisibleAnywhere,Category = "Position")
-	FRotator StartRot; 
+	FRotator StartRot;
+	 
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite,Category = "Niagara");
 	UNiagaraComponent* GunNiagara;
@@ -86,7 +89,9 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player Stats")
 	float GetHealthPercentage();
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Player Info")
-	int32 PlayerControllerID; 
+	int32 PlayerControllerID;
+	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "Dead")
+	bool bIsDead;
  //    UFUNCTION()
 	// void SetHUDReference(UMyPlayerHUD* HUD);
 	UFUNCTION()
@@ -94,9 +99,9 @@ public:
 	UPROPERTY()
 	// UMyPlayerHUD* PlayerHUD;
 	
-	
 
-	
+
+
 	bool bIsAiming;
 	bool bIsShooting; 
 	void CustomKeyPress();
@@ -109,6 +114,7 @@ public:
 	void ResetPlayer(); 
 	void AddAmmo(int amount);
 	void AddHealth(int amount);
+	void Die(); 
 	//int PlayerScore = 0;
 	// void Pickup();
 	// void PerformPickupRaycast(const FVector& StartLocation, const FVector& EndLocation); 

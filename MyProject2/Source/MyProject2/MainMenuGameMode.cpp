@@ -37,7 +37,7 @@ void AMainMenuGameMode::BeginPlay()
 void AMainMenuGameMode::PlayGame()
 {
 	///play game
-	 GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("GAME PLAYING"));
+	 //GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("GAME PLAYING"));
 	GLog->Log("It works!");
 	UE_LOG(LogTemp, Warning, TEXT("PlayGame function called"));
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(),0);

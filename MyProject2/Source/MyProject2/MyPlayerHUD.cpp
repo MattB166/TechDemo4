@@ -104,6 +104,28 @@ FString UMyPlayerHUD::GetFormattedTime()
 	int32 seconds = FMath::FloorToInt(RemainingTime) % 60;
 return FString::Printf(TEXT("%02d:%02d"),mins,seconds);
 }
+
+void UMyPlayerHUD::DisplayWinnerText(const FString& WinnerText)
+{
+
+	FText WinnerTextAsText = FText::FromString(WinnerText);
+	SetWinnerText(WinnerTextAsText);
+	
+}
+
+void UMyPlayerHUD::ClearWinnerText()
+{
+	if(WinnerTextBlock)
+	{
+		WinnerTextBlock->SetText(FText::FromString(" "));
+	}
+}
+
+void UMyPlayerHUD::SetWinnerText(const FText& WinnerText)
+{
+	Winner = WinnerText; 
+}
+
 void UMyPlayerHUD::OnRoundTimerTick()
 {
 	RemainingTime -= 1.0f;

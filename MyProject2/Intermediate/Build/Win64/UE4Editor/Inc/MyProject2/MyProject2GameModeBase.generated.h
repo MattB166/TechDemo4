@@ -71,7 +71,10 @@ public: \
 	FORCEINLINE static uint32 __PPO__PickupLocations() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupLocations); } \
 	FORCEINLINE static uint32 __PPO__PickupClasses() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickupClasses); } \
 	FORCEINLINE static uint32 __PPO__PickUpSpawnInterval() { return STRUCT_OFFSET(AMyProject2GameModeBase, PickUpSpawnInterval); } \
-	FORCEINLINE static uint32 __PPO__HUDREF() { return STRUCT_OFFSET(AMyProject2GameModeBase, HUDREF); }
+	FORCEINLINE static uint32 __PPO__HUDREF() { return STRUCT_OFFSET(AMyProject2GameModeBase, HUDREF); } \
+	FORCEINLINE static uint32 __PPO__BackGroundMusic() { return STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusic); } \
+	FORCEINLINE static uint32 __PPO__BackGroundMusicVolume() { return STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusicVolume); } \
+	FORCEINLINE static uint32 __PPO__BackGroundMusicComponent() { return STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusicComponent); }
 
 
 #define MyProject2_Source_MyProject2_MyProject2GameModeBase_h_13_PROLOG

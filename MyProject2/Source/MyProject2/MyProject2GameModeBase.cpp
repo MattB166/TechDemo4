@@ -5,24 +5,42 @@
 #include "MyPlayerHUD.h"
 #include "Player1.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/AudioComponent.h"
+#include "Kismet/GameplayStatics.h"
+
 AMyProject2GameModeBase::AMyProject2GameModeBase()
 {
    DefaultPawnClass = APlayer1::StaticClass();
    PrimaryActorTick.bCanEverTick = true;
+   
 }
 
 void AMyProject2GameModeBase::Tick(float DeltaTime)
 {
    Super::Tick(DeltaTime);
-   GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("TICKING"));
+   //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("TICKING"));
    if(HUDREF->GetRemainingTime()==0)
    {
+      //GetWorldTimerManager().SetTimer(EndRoundTimerHandle,this,&AMyProject2GameModeBase::EndRound,5.0f,false); 
       EndRound();
       HUDREF->StartTimer();
       HUDREF2->StartTimer(); 
    }
-   else if(Player1Character->GetHealthPercentage() == 0 || Player2Character->GetHealthPercentage() == 0)
+   // else if(Player1Character->GetHealthPercentage() == 0 || Player2Character->GetHealthPercentage() == 0)
+   // {
+   //   // GetWorldTimerManager().SetTimer(EndRoundTimerHandle,this,&AMyProject2GameModeBase::EndRound,5.0f,false); 
+   //    EndRound();
+   //    HUDREF->StartTimer();
+   //    HUDREF2->StartTimer(); 
+   // }
+
+   // if(BackGroundMusicComponent)
+   // {
+   //    BackGroundMusicComponent->OnAudioFinished.AddDynamic(this,&AMyProject2GameModeBase::OnMusicFinished);
+   // }  crashes game
+  else if(Player1Character->bIsDead || Player2Character->bIsDead)
    {
+      
       EndRound();
       HUDREF->StartTimer();
       HUDREF2->StartTimer(); 
@@ -59,9 +77,9 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
                   }
                   Player1Character->HUDOverlayPlayer->AddToPlayerScreen();
                   Player1Character->HUDOverlayPlayer->SetVisibility(ESlateVisibility::Visible);
-                  GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P1 HUD Set"));
+                  //GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P1 HUD Set"));
                   FVector2D WidgetPos = Player1Character->HUDOverlayPlayer->GetCachedGeometry().ToPaintGeometry().GetAccumulatedRenderTransform().GetTranslation();
-                  GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("P1 HUD Position: X=%.2f, Y=%.2f"), WidgetPos.X, WidgetPos.Y));
+                 // GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("P1 HUD Position: X=%.2f, Y=%.2f"), WidgetPos.X, WidgetPos.Y));
                }
             }
          }
@@ -85,7 +103,7 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
                   Player2Character->HUDOverlayPlayer->SetVisibility(ESlateVisibility::Visible);
                  
                   
-                  GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P2 HUD Set"));
+                  //GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("P2 HUD Set"));
                }
             }
          }
@@ -95,8 +113,19 @@ void AMyProject2GameModeBase::PostLogin(APlayerController* NewPlayer)
 }
 void AMyProject2GameModeBase::BeginPlay()
 {
+  if(!BackGroundMusicComponent)
+  {
+     BackGroundMusicComponent =  UGameplayStatics::SpawnSound2D(this,BackGroundMusic);
+     if(BackGroundMusicComponent)
+     {
+        BackGroundMusicComponent->SetVolumeMultiplier(BackGroundMusicVolume);
+        bShouldLoop = true; 
+       
+        
+     }
+  }
   
-
+   
    SpawnPickup();
    GetWorldTimerManager().SetTimer(PickupSpawnTimerHandle,this,&AMyProject2GameModeBase::SpawnPickup,PickUpSpawnInterval,true); 
 }
@@ -120,11 +149,31 @@ void AMyProject2GameModeBase::SpawnPickup()
       AActor* NewPickup = GetWorld()->SpawnActor<AActor>(ChosenPickupClass,SpawnLocation,FRotator::ZeroRotator);
 
       FString SpawnLoc = FString::Printf(TEXT("PICKUP SPAWNED AT: %S"),*SpawnLocation.ToString());
-      GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, SpawnLoc);
+      //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, SpawnLoc);
 
       ++NumSpawnedPickups; 
    }
 }
+
+void AMyProject2GameModeBase::StopBackGroundMusic()
+{
+   if(BackGroundMusicComponent)
+   {
+      bShouldLoop = false; 
+      BackGroundMusicComponent->Stop(); 
+   }
+      
+}
+
+void AMyProject2GameModeBase::OnMusicFinished()
+{
+   if(BackGroundMusicComponent && bShouldLoop)
+   {
+     
+      BackGroundMusicComponent->Play(); 
+   }
+}
+
 void AMyProject2GameModeBase::DecrementPickUpCount()
 {
    --NumSpawnedPickups;
@@ -146,15 +195,16 @@ void AMyProject2GameModeBase::RemoveSpawnedLocation(const FVector& Location)
 
 void AMyProject2GameModeBase::EndRound()
 {
-   GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("ROUND ENDED"));
-
+   //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("ROUND ENDED"));
    if(Player1Character->GetHealthPercentage() > Player2Character->GetHealthPercentage())
    {
       Player1Character->UpdateScore(1);
+    
    }
    else if(Player2Character->GetHealthPercentage() > Player1Character->GetHealthPercentage())
    {
-      Player2Character->UpdateScore(1); 
+      Player2Character->UpdateScore(1);
+     
    }
    else if(Player1Character->GetHealthPercentage() == Player2Character->GetHealthPercentage())
    {
@@ -169,7 +219,7 @@ void AMyProject2GameModeBase::EndRound()
    }
    else if(RoundNumber == 5)
    {
-      //// decide winner 
+      DecideOverallWinner(); 
    }
    
    
@@ -182,14 +232,21 @@ void AMyProject2GameModeBase::DecideOverallWinner()
 
    if(P2Score > P1Score)
    {
-      ///p2 wins. display on HUD
+      HUDREF2->DisplayWinnerText("WINNER!");
+      HUDREF->DisplayWinnerText("LOSER!");
    }
    else if(P1Score > P2Score)
    {
-      ///p1 wins. display om HUD
+      HUDREF->DisplayWinnerText("WINNER!");
+      HUDREF2->DisplayWinnerText("LOSER!"); 
       
       
    }
+
+   RoundNumber = 0;
+   Player1Character->UpdateScore(0);
+   Player2Character->UpdateScore(0); 
+   //EndRound(); 
 }
 
 

@@ -35,7 +35,8 @@ protected:
 	TArray<FVector> PickupLocations;
 
 	FTimerHandle PickupSpawnTimerHandle;
-
+    FTimerHandle EndRoundTimerHandle;
+	FTimerHandle DisplayTimer; 
 	TArray<FVector> SpawnedLocations; 
 	
 
@@ -47,10 +48,23 @@ protected:
 
 	virtual void BeginPlay() override;
 
-	void SpawnPickup(); 
+	void SpawnPickup();
+
+	void StopBackGroundMusic();
+	void OnMusicFinished();
+	bool bShouldLoop = true; 
     UPROPERTY()
 	UMyPlayerHUD* HUDREF;
-	UMyPlayerHUD* HUDREF2; 
+	UMyPlayerHUD* HUDREF2;
+
+	UPROPERTY(EditAnywhere, Category = "Sounds")
+	USoundBase* BackGroundMusic;
+
+	UPROPERTY(EditAnywhere,Category = "Sounds")
+	float BackGroundMusicVolume; 
+
+	UPROPERTY()
+	class UAudioComponent* BackGroundMusicComponent; 
 
 	APlayer1* Player1Character;
 	APlayer1* Player2Character;

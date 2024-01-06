@@ -21,6 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	MYPROJECT2_API UClass* Z_Construct_UClass_UMyPlayerHUD_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AMyProject2GameModeBase::execRemoveSpawnedLocation)
 	{
@@ -107,6 +109,18 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HUDREF_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HUDREF;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BackGroundMusic_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BackGroundMusic;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BackGroundMusicVolume_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BackGroundMusicVolume;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BackGroundMusicComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BackGroundMusicComponent;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -156,6 +170,27 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF = { "HUDREF", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, HUDREF), Z_Construct_UClass_UMyPlayerHUD_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusic_MetaData[] = {
+		{ "Category", "Sounds" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusic = { "BackGroundMusic", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusic), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusic_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusic_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicVolume_MetaData[] = {
+		{ "Category", "Sounds" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicVolume = { "BackGroundMusicVolume", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusicVolume), METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicVolume_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicVolume_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "MyProject2GameModeBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicComponent = { "BackGroundMusicComponent", nullptr, (EPropertyFlags)0x0020080000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyProject2GameModeBase, BackGroundMusicComponent), Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicComponent_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyProject2GameModeBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupLocations,
@@ -163,6 +198,9 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickupClasses,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_PickUpSpawnInterval,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_HUDREF,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusic,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicVolume,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyProject2GameModeBase_Statics::NewProp_BackGroundMusicComponent,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyProject2GameModeBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyProject2GameModeBase>::IsAbstract,
@@ -191,7 +229,7 @@ void EmptyLinkFunctionForGeneratedCodeMyProject2GameModeBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMyProject2GameModeBase, 1182212679);
+	IMPLEMENT_CLASS(AMyProject2GameModeBase, 1381549897);
 	template<> MYPROJECT2_API UClass* StaticClass<AMyProject2GameModeBase>()
 	{
 		return AMyProject2GameModeBase::StaticClass();

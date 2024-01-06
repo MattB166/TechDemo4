@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Image.h"
+#include "Components/TextBlock.h"
 #include "MyPlayerHUD.generated.h"
 class APlayer1;
 class AMyProject2GameModeBase;
@@ -27,6 +28,9 @@ public:
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Transient, meta = (BindWidgetAnim))
 	UWidgetAnimation* HitTrack;
 
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Transient,meta = (BindWidget))
+	UTextBlock* WinnerTextBlock; 
+
 	UFUNCTION(BlueprintCallable,Category = "Anims")
 	void PlayDamageAnim();
 	
@@ -40,8 +44,19 @@ public:
 	UFUNCTION(BlueprintCallable,Category = "HUD")
 	FString GetFormattedTime();
 
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	void DisplayWinnerText(const FString& WinnerText);
+
+	UFUNCTION(BlueprintCallable,Category = "HUD")
+	void ClearWinnerText();
+
+	void SetWinnerText(const FText& WinnerText); 
+
 	UPROPERTY(BlueprintReadOnly,Category = "Score")
 	int32 PlayerScore;
+
+	UPROPERTY(BlueprintReadOnly,Category = "Winner")
+	FText Winner; 
 
 	UFUNCTION(BlueprintCallable,Category = "HUD")
 	void UpdatePlayerScore(int32 NewScore);

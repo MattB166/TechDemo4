@@ -84,6 +84,7 @@ public: \
 	FORCEINLINE static uint32 __PPO__PlayerShoot() { return STRUCT_OFFSET(APlayer1, PlayerShoot); } \
 	FORCEINLINE static uint32 __PPO__NewDeath() { return STRUCT_OFFSET(APlayer1, NewDeath); } \
 	FORCEINLINE static uint32 __PPO__ShotSound() { return STRUCT_OFFSET(APlayer1, ShotSound); } \
+	FORCEINLINE static uint32 __PPO__HurtSound() { return STRUCT_OFFSET(APlayer1, HurtSound); } \
 	FORCEINLINE static uint32 __PPO__PlayerSMC() { return STRUCT_OFFSET(APlayer1, PlayerSMC); } \
 	FORCEINLINE static uint32 __PPO__PlayerHealth() { return STRUCT_OFFSET(APlayer1, PlayerHealth); } \
 	FORCEINLINE static uint32 __PPO__TotalAmmo() { return STRUCT_OFFSET(APlayer1, TotalAmmo); } \

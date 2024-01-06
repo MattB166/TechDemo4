@@ -91,7 +91,7 @@ void APlayer1::InitialisePlayer()
 	{
 		GunNiagara = NiagaraComponent;
 		GunNiagara->SetVisibility(false); 
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found Niagara Component"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found Niagara Component"));
 	}
 
 	if(USpringArmComponent* SpringArmComponent = FindComponentByClass<USpringArmComponent>())
@@ -102,7 +102,7 @@ void APlayer1::InitialisePlayer()
 
 	if(PlayerSMC)
 	{
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Searching through SMC"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Searching through SMC"));
 		FString GunNameString(TEXT("GUN"));
 		for(USceneComponent* ChildComponent : PlayerSMC->GetAttachChildren())
 		{
@@ -112,19 +112,19 @@ void APlayer1::InitialisePlayer()
 				if(ChildComponent->IsA(USkeletalMeshComponent::StaticClass()))
 				{
 					GunMesh = Cast<USkeletalMeshComponent>(ChildComponent);
-					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
+					//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Found GUN Component"));
 					
 				}
 				else
 				{
-					GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Have Not Found GUN Component"));
+					//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("Have Not Found GUN Component"));
 				}
 			}
 		}
 	}
 	else
 	{
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO PLAYER SMC"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO PLAYER SMC"));
 	}
 	// TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
 	// GetComponents<USkeletalMeshComponent>(SkeletalMeshComponents);
@@ -175,14 +175,15 @@ void APlayer1::ResetPlayer()
 	AmmoInClip = 10;
 	PlayerSMC = GetMesh();
 	this->SetActorLocation(StartPos);
-	this->SetActorRotation(StartRot); 
+	this->SetActorRotation(StartRot);
+	bIsDead = false; 
 }
 
 
 void APlayer1::MoveForward(float AxisValue)
 {
 	AddMovementInput(GetActorForwardVector()* AxisValue);
-	 UE_LOG(LogTemp, Warning, TEXT("MoveForward AxisValue: %f"), AxisValue);
+	 //UE_LOG(LogTemp, Warning, TEXT("MoveForward AxisValue: %f"), AxisValue);
 	
 }
 
@@ -205,7 +206,7 @@ void APlayer1::CustomKeyPress()
 }
 void APlayer1::StartAiming()
 {
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STARTED AIMING"));
+	//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STARTED AIMING"));
 	bIsAiming = true;
 	HandleAim();
 	MySpringArm->TargetArmLength = 5;
@@ -213,7 +214,7 @@ void APlayer1::StartAiming()
 }
 void APlayer1::StopAiming()
 {
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STOPPED AIMING"));
+	//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("STOPPED AIMING"));
 	StopAnimMontage(PlayerAim);
 	MySpringArm->TargetArmLength = 100; 
 	bIsAiming = false;
@@ -288,15 +289,15 @@ void APlayer1::Shoot()
 				if(HitPlayer && HitPlayer != this)
 				{
                    FName HitBoneName = Hit.BoneName;
-					GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Hit Bone: %s"), *HitBoneName.ToString()));
+					//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Hit Bone: %s"), *HitBoneName.ToString()));
 					if(HitBoneName == FName("Head"))
 					{
-						GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HEADSHOT"));
+						//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HEADSHOT"));
 						HitPlayer->TakeDamage(50);
 					}
 					else
 					{
-						GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HIT ENEMY On Body"));
+						//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("HIT ENEMY On Body"));
 						HitPlayer->TakeDamage(10); 
 					}
 					
@@ -313,7 +314,7 @@ void APlayer1::Shoot()
 		}
 		else if(AmmoInClip == 0 && TotalAmmo == 0)
 		{
-			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO AMMO REMAINING"));
+			//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Blue,TEXT("NO AMMO REMAINING"));
 			bIsShooting = false;
 			
 			
@@ -337,13 +338,13 @@ void APlayer1::Reload()
 
 		TotalAmmo -= AmmoToReload;
 		AmmoInClip +=AmmoToReload;
-		GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("RELOADED"));
 	}
 }
 void APlayer1::TakeDamage(int damage)
 {
     Cast<UMyPlayerHUD>(HUDOverlayPlayer)->PlayDamageAnim(); 
-	
+	UGameplayStatics::SpawnSoundAtLocation(this,HurtSound,GetActorLocation()); 
 	if(PlayerHealth > 0)
     {
     	PlayerHealth -= damage; 
@@ -351,13 +352,7 @@ void APlayer1::TakeDamage(int damage)
 	else if(PlayerHealth <= 0)
 	{
 		PlayerHealth = 0;
-		//PlayAnimMontage(PlayerDeath);
-		if(NewDeath)
-		{
-            /////delay 
-			PlayerSMC->PlayAnimation(NewDeath,false);
-			GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Red,TEXT("DYING ANIM PLAYED"));
-		}
+		Die(); 
 		
 		
 	}
@@ -365,7 +360,7 @@ void APlayer1::TakeDamage(int damage)
 }
 void APlayer1::OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Player overlapped with Pickup from player function!"));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Player overlapped with Pickup from player function!"));
 	if(OtherActor && OtherActor->IsA(APickups::StaticClass()))
 	{
 		CurrentPickup = Cast<APickups>(OtherActor);
@@ -380,7 +375,7 @@ void APlayer1::OnActorOverlap(AActor* OverlappedActor, AActor* OtherActor)
 void APlayer1::AddAmmo(int amount)
 {
 	TotalAmmo+= amount;
-	GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Green,TEXT("AMMO INCREASED"));
+	//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Green,TEXT("AMMO INCREASED"));
 }
 void APlayer1::AddHealth(int amount)
 {
@@ -389,6 +384,17 @@ void APlayer1::AddHealth(int amount)
 		PlayerHealth += amount; 
 	}
 }
+
+void APlayer1::Die()
+{
+	if(NewDeath)
+	{
+		//PlayerSMC->PlayAnimation(NewDeath,false);
+		bIsDead = true; 
+		//GEngine->AddOnScreenDebugMessage(-1,5.f,FColor::Green,TEXT("DEATH PLAYING"));
+	}
+}
+
 void APlayer1::UpdateScore(int32 ScoreDelta)
 {
 	PlayerScore += ScoreDelta;

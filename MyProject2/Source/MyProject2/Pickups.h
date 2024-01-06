@@ -43,6 +43,11 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Pickups")
 	float amount;
 
+	UPROPERTY(EditAnywhere,Category = "Sounds")
+	class USoundBase* PickupSound;
+
+	void PlayPickUpSound(); 
+
 private:
 	
 };

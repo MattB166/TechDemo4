@@ -13,28 +13,32 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MYPROJECT2_MyPlayerHUD_generated_h
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_SPARSE_DATA
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_RPC_WRAPPERS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_SPARSE_DATA
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetRemainingTime); \
 	DECLARE_FUNCTION(execUpdatePlayerScore); \
+	DECLARE_FUNCTION(execClearWinnerText); \
+	DECLARE_FUNCTION(execDisplayWinnerText); \
 	DECLARE_FUNCTION(execGetFormattedTime); \
 	DECLARE_FUNCTION(execStopTimer); \
 	DECLARE_FUNCTION(execStartTimer); \
 	DECLARE_FUNCTION(execPlayDamageAnim);
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetRemainingTime); \
 	DECLARE_FUNCTION(execUpdatePlayerScore); \
+	DECLARE_FUNCTION(execClearWinnerText); \
+	DECLARE_FUNCTION(execDisplayWinnerText); \
 	DECLARE_FUNCTION(execGetFormattedTime); \
 	DECLARE_FUNCTION(execStopTimer); \
 	DECLARE_FUNCTION(execStartTimer); \
 	DECLARE_FUNCTION(execPlayDamageAnim);
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_INCLASS_NO_PURE_DECLS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyPlayerHUD(); \
 	friend struct Z_Construct_UClass_UMyPlayerHUD_Statics; \
@@ -43,7 +47,7 @@ public: \
 	DECLARE_SERIALIZER(UMyPlayerHUD)
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_INCLASS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_INCLASS \
 private: \
 	static void StaticRegisterNativesUMyPlayerHUD(); \
 	friend struct Z_Construct_UClass_UMyPlayerHUD_Statics; \
@@ -52,7 +56,7 @@ public: \
 	DECLARE_SERIALIZER(UMyPlayerHUD)
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_STANDARD_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMyPlayerHUD(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyPlayerHUD) \
@@ -65,7 +69,7 @@ private: \
 public:
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_ENHANCED_CONSTRUCTORS \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMyPlayerHUD(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -78,28 +82,28 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyPlayerHUD)
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_PRIVATE_PROPERTY_OFFSET
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_16_PROLOG
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_GENERATED_BODY_LEGACY \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_PRIVATE_PROPERTY_OFFSET
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_17_PROLOG
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_RPC_WRAPPERS \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_INCLASS \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_STANDARD_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_RPC_WRAPPERS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_INCLASS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define MyProject2_Source_MyProject2_MyPlayerHUD_h_19_GENERATED_BODY \
+#define MyProject2_Source_MyProject2_MyPlayerHUD_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_PRIVATE_PROPERTY_OFFSET \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_SPARSE_DATA \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_INCLASS_NO_PURE_DECLS \
-	MyProject2_Source_MyProject2_MyPlayerHUD_h_19_ENHANCED_CONSTRUCTORS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_PRIVATE_PROPERTY_OFFSET \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_SPARSE_DATA \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_INCLASS_NO_PURE_DECLS \
+	MyProject2_Source_MyProject2_MyPlayerHUD_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
