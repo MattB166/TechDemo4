@@ -19,6 +19,7 @@ class AActor;
  \
 	DECLARE_FUNCTION(execGetControllerID); \
 	DECLARE_FUNCTION(execGetHealthPercentage); \
+	DECLARE_FUNCTION(execResetScore); \
 	DECLARE_FUNCTION(execGetPlayerScore); \
 	DECLARE_FUNCTION(execUpdateScore); \
 	DECLARE_FUNCTION(execOnActorOverlap); \
@@ -29,6 +30,7 @@ class AActor;
  \
 	DECLARE_FUNCTION(execGetControllerID); \
 	DECLARE_FUNCTION(execGetHealthPercentage); \
+	DECLARE_FUNCTION(execResetScore); \
 	DECLARE_FUNCTION(execGetPlayerScore); \
 	DECLARE_FUNCTION(execUpdateScore); \
 	DECLARE_FUNCTION(execOnActorOverlap); \

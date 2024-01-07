@@ -86,6 +86,8 @@ public:
 	void UpdateScore(int32 ScoreDelta);
 	UFUNCTION(BlueprintPure,Category = "Player Stats")
 	int32 GetPlayerScore() const;
+	UFUNCTION(BlueprintCallable)
+	void ResetScore(); 
 	UFUNCTION(BlueprintPure, Category = "Player Stats")
 	float GetHealthPercentage();
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category = "Player Info")

@@ -406,6 +406,11 @@ int32 APlayer1::GetPlayerScore() const
 	return PlayerScore; 
 }
 
+void APlayer1::ResetScore()
+{
+	PlayerScore = 0; 
+}
+
 float APlayer1::GetHealthPercentage()
 {
 	return(PlayerHealth / 200.0f) * 100.0f; 

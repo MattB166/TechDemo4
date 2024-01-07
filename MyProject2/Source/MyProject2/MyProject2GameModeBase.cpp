@@ -234,19 +234,22 @@ void AMyProject2GameModeBase::DecideOverallWinner()
    {
       HUDREF2->DisplayWinnerText("WINNER!");
       HUDREF->DisplayWinnerText("LOSER!");
+      RoundNumber = 0;
+      Player1Character->ResetScore();
+      Player2Character->ResetScore(); 
    }
    else if(P1Score > P2Score)
    {
       HUDREF->DisplayWinnerText("WINNER!");
-      HUDREF2->DisplayWinnerText("LOSER!"); 
+      HUDREF2->DisplayWinnerText("LOSER!");
+      RoundNumber = 0;
+      Player1Character->ResetScore();
+      Player2Character->ResetScore(); 
       
       
    }
 
-   RoundNumber = 0;
-   Player1Character->UpdateScore(0);
-   Player2Character->UpdateScore(0); 
-   //EndRound(); 
+   EndRound(); 
 }
 
 

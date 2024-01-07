@@ -45,6 +45,13 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		*(float*)Z_Param__Result=P_THIS->GetHealthPercentage();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayer1::execResetScore)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ResetScore();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayer1::execGetPlayerScore)
 	{
 		P_FINISH;
@@ -85,6 +92,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 			{ "GetPlayerScore", &APlayer1::execGetPlayerScore },
 			{ "OnActorOverlap", &APlayer1::execOnActorOverlap },
 			{ "Reload", &APlayer1::execReload },
+			{ "ResetScore", &APlayer1::execResetScore },
 			{ "UpdateScore", &APlayer1::execUpdateScore },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -248,6 +256,28 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_APlayer1_ResetScore_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayer1_ResetScore_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player1.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayer1_ResetScore_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayer1, nullptr, "ResetScore", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_APlayer1_ResetScore_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayer1_ResetScore_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_APlayer1_ResetScore()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_APlayer1_ResetScore_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_APlayer1_UpdateScore_Statics
 	{
 		struct Player1_eventUpdateScore_Parms
@@ -407,6 +437,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		{ &Z_Construct_UFunction_APlayer1_GetPlayerScore, "GetPlayerScore" }, // 156973615
 		{ &Z_Construct_UFunction_APlayer1_OnActorOverlap, "OnActorOverlap" }, // 3318064063
 		{ &Z_Construct_UFunction_APlayer1_Reload, "Reload" }, // 1278131382
+		{ &Z_Construct_UFunction_APlayer1_ResetScore, "ResetScore" }, // 321078520
 		{ &Z_Construct_UFunction_APlayer1_UpdateScore, "UpdateScore" }, // 3485810985
 	};
 #if WITH_METADATA
@@ -661,7 +692,7 @@ void EmptyLinkFunctionForGeneratedCodePlayer1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayer1, 2927190790);
+	IMPLEMENT_CLASS(APlayer1, 3296460344);
 	template<> MYPROJECT2_API UClass* StaticClass<APlayer1>()
 	{
 		return APlayer1::StaticClass();
